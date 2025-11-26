@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Lunch War: Claim / Reason / Style Prototype</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <h1 class="app__title">Lunch War: 문장 조합 테스트</h1>
+        <p class="app__subtitle">
+          Claim / Reason / Style 버튼을 눌러 조합해보세요.
+        </p>
+      </header>
+
+      <section class="controls">
+        <div class="controls__row">
+          <button id="btn-claim" class="btn controls__btn">
+            Claim 뽑기
+          </button>
+          <span id="selected-claim" class="controls__label">아직 선택 안 됨</span>
+        </div>
+        <div class="controls__row">
+          <button id="btn-reason" class="btn controls__btn">
+            Reason 뽑기
+          </button>
+          <span id="selected-reason" class="controls__label">아직 선택 안 됨</span>
+        </div>
+        <div class="controls__row">
+          <button id="btn-style" class="btn controls__btn">
+            Style 뽑기
+          </button>
+          <span id="selected-style" class="controls__label">아직 선택 안 됨</span>
+        </div>
+
+        <button id="btn-random-all" class="btn btn--secondary">
+          전부 랜덤 뽑기
+        </button>
+      </section>
+
+      <section class="result">
+        <h2 class="result__title">조합된 문장</h2>
+        <p id="result-sentence" class="result__sentence">
+          아직 문장이 없습니다. 버튼을 눌러 조합을 시작해보세요.
+        </p>
+      </section>
+    </main>
+
+    <script src="./main.js"></script>
+  </body>
+</html>
+
+
