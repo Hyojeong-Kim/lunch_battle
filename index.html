@@ -11,91 +11,163 @@
       <header class="app__header">
         <h1 class="app__title">Lunch War: 문장 조합 테스트</h1>
         <p class="app__subtitle">
-          Claim → Reason → Style 순서로 선택해 한 문장을 완성해보세요.
+          Claim → Reason → Style 순서로 선택해 한 문장을 완성하고, 점수 배틀을
+          진행해보세요.
         </p>
       </header>
 
-      <section class="controls">
-        <div class="controls__row" id="row-menu">
-          <div class="controls__row-header">
-            <span class="controls__row-title">0. 메뉴 선택</span>
-            <span id="selected-menu" class="controls__label">아직 선택 안 됨</span>
-          </div>
-          <div class="controls__choices">
-            <button id="menu-option-0" class="btn controls__btn" type="button">
-              -
-            </button>
-            <button id="menu-option-1" class="btn controls__btn" type="button">
-              -
-            </button>
-          </div>
+      <section id="battle-header" class="battle-header">
+        <div id="turn-display" class="battle-header__item">Turn 1 / 5</div>
+        <div id="influence-display" class="battle-header__item">
+          우리 50 : 50 상대
         </div>
-
-        <div class="controls__row" id="row-claim">
-          <div class="controls__row-header">
-            <span class="controls__row-title">1. Claim</span>
-            <span id="selected-claim" class="controls__label">아직 선택 안 됨</span>
-          </div>
-          <div class="controls__choices">
-            <button id="claim-option-0" class="btn controls__btn" type="button">
-              -
-            </button>
-            <button id="claim-option-1" class="btn controls__btn" type="button">
-              -
-            </button>
-            <button id="claim-option-2" class="btn controls__btn" type="button">
-              -
-            </button>
-          </div>
+        <div id="context-display" class="battle-header__item">
+          날씨: 비 | 요일: 금 | 월급: D+5
         </div>
+      </section>
 
-        <div class="controls__row" id="row-reason">
-          <div class="controls__row-header">
-            <span class="controls__row-title">2. Reason</span>
-            <span id="selected-reason" class="controls__label">아직 선택 안 됨</span>
+      <div id="battle-main" class="battle-main">
+        <section class="controls" id="player-choices">
+          <div class="controls__row" id="row-menu">
+            <div class="controls__row-header">
+              <span class="controls__row-title">0. 메뉴 선택</span>
+              <span id="selected-menu" class="controls__label"
+                >아직 선택 안 됨</span
+              >
+            </div>
+            <div class="controls__choices" id="menu-options">
+              <button id="menu-option-0" class="btn controls__btn" type="button">
+                -
+              </button>
+              <button id="menu-option-1" class="btn controls__btn" type="button">
+                -
+              </button>
+            </div>
           </div>
-          <div class="controls__choices">
-            <button id="reason-option-0" class="btn controls__btn" type="button">
-              -
-            </button>
-            <button id="reason-option-1" class="btn controls__btn" type="button">
-              -
-            </button>
-            <button id="reason-option-2" class="btn controls__btn" type="button">
-              -
-            </button>
-          </div>
-        </div>
 
-        <div class="controls__row" id="row-style">
-          <div class="controls__row-header">
-            <span class="controls__row-title">3. Style</span>
-            <span id="selected-style" class="controls__label">아직 선택 안 됨</span>
+          <div class="controls__row" id="row-claim">
+            <div class="controls__row-header">
+              <span class="controls__row-title">1. Claim</span>
+              <span id="selected-claim" class="controls__label"
+                >아직 선택 안 됨</span
+              >
+            </div>
+            <div class="controls__choices" id="claim-options">
+              <button
+                id="claim-option-0"
+                class="btn controls__btn"
+                type="button"
+              >
+                -
+              </button>
+              <button
+                id="claim-option-1"
+                class="btn controls__btn"
+                type="button"
+              >
+                -
+              </button>
+              <button
+                id="claim-option-2"
+                class="btn controls__btn"
+                type="button"
+              >
+                -
+              </button>
+            </div>
           </div>
-          <div class="controls__choices">
-            <button id="style-option-0" class="btn controls__btn" type="button">
-              -
-            </button>
-            <button id="style-option-1" class="btn controls__btn" type="button">
-              -
-            </button>
-            <button id="style-option-2" class="btn controls__btn" type="button">
-              -
-            </button>
-          </div>
-        </div>
 
-        <button id="btn-reset" class="btn btn--secondary" type="button">
-          선택 초기화하고 처음부터 다시
+          <div class="controls__row" id="row-reason">
+            <div class="controls__row-header">
+              <span class="controls__row-title">2. Reason</span>
+              <span id="selected-reason" class="controls__label"
+                >아직 선택 안 됨</span
+              >
+            </div>
+            <div class="controls__choices" id="reason-options">
+              <button
+                id="reason-option-0"
+                class="btn controls__btn"
+                type="button"
+              >
+                -
+              </button>
+              <button
+                id="reason-option-1"
+                class="btn controls__btn"
+                type="button"
+              >
+                -
+              </button>
+              <button
+                id="reason-option-2"
+                class="btn controls__btn"
+                type="button"
+              >
+                -
+              </button>
+            </div>
+          </div>
+
+          <div class="controls__row" id="row-style">
+            <div class="controls__row-header">
+              <span class="controls__row-title">3. Style</span>
+              <span id="selected-style" class="controls__label"
+                >아직 선택 안 됨</span
+              >
+            </div>
+            <div class="controls__choices" id="style-options">
+              <button
+                id="style-option-0"
+                class="btn controls__btn"
+                type="button"
+              >
+                -
+              </button>
+              <button
+                id="style-option-1"
+                class="btn controls__btn"
+                type="button"
+              >
+                -
+              </button>
+              <button
+                id="style-option-2"
+                class="btn controls__btn"
+                type="button"
+              >
+                -
+              </button>
+            </div>
+          </div>
+
+          <button id="btn-reset" class="btn btn--secondary" type="button">
+            선택 초기화하고 처음부터 다시
+          </button>
+        </section>
+
+        <section class="result" id="battle-log">
+          <h2 class="result__title">이번 턴 결과</h2>
+          <p id="combined-sentence" class="result__sentence">
+            아직 문장이 없습니다. 버튼을 눌러 조합을 시작해보세요.
+          </p>
+          <p id="score-summary" class="result__score">
+            아직 점수가 없습니다. Claim/Reason/Style을 모두 고른 뒤 턴을 확정해보세요.
+          </p>
+          <p id="log-messages" class="result__log">
+            Turn 1 시작. 메뉴를 고르고 Claim/Reason/Style을 선택해 주세요.
+          </p>
+        </section>
+      </div>
+
+      <footer id="battle-footer" class="battle-footer">
+        <button id="confirm-turn" class="btn" type="button">
+          턴 확정
         </button>
-      </section>
-
-      <section class="result">
-        <h2 class="result__title">조합된 문장</h2>
-        <p id="result-sentence" class="result__sentence">
-          아직 문장이 없습니다. 버튼을 눌러 조합을 시작해보세요.
-        </p>
-      </section>
+        <button id="next-turn" class="btn btn--secondary" type="button" disabled>
+          다음 턴
+        </button>
+      </footer>
     </main>
 
     <script src="./main.js"></script>

@@ -14,15 +14,40 @@ const state = {
   menuCategory: null, // 예: "korean", "japanese"
   faction: null, // 예: "kimchi_stew", "ramen" 등
   menuOptions: [], // 현재 화면에 보여주는 메뉴 2개
+  isFallbackData: false, // 폴백 JSON 사용 여부
   allClaims: [],
   allReasons: [],
   allStyles: [],
+  // faction 필터 후 전체 풀
   claims: [],
   reasons: [],
   styles: [],
+  // 이번 턴에 플레이어가 고를 수 있는 3개 옵션
+  optionClaims: [],
+  optionReasons: [],
+  optionStyles: [],
+  // 플레이어가 실제로 고른 문장
   selectedClaim: null,
   selectedReason: null,
   selectedStyle: null,
+};
+
+// 배틀 상태 (점수/세력/컨텍스트/턴)
+const battleState = {
+  turn: 1,
+  maxTurn: 5,
+  playerInfluence: 50,
+  cpuInfluence: 50,
+  context: {
+    weather: "비", // 맑음 | 흐림 | 비 | 눈
+    weekday: "금", // 월 | 화목 | 수 | 금
+    salary: "D+5", // D-5 | 월급날 | D+5
+  },
+  selected: {
+    claim: null,
+    reason: null,
+    style: null,
+  },
 };
 
 // TODO: 카테고리/메뉴 선택 UI가 추가되면 이 상수들을 동적으로 바꾸도록 확장
@@ -40,6 +65,75 @@ const DEFAULT_FACTION_BY_CATEGORY = {
   chinese: "chinese",
   western: "western",
 };
+
+// --- 컨텍스트 → 태그 변환 & 점수 계산 유틸 ---
+
+const WEATHER_OPTIONS = ["맑음", "흐림", "비", "눈"];
+const WEEKDAY_OPTIONS = ["월", "수", "금", "화목"];
+const SALARY_OPTIONS = ["D-5", "월급날", "D+5"];
+
+function pickFromArray(list) {
+  if (!Array.isArray(list) || list.length === 0) return null;
+  const index = Math.floor(Math.random() * list.length);
+  return list[index];
+}
+
+function randomizeContext() {
+  battleState.context.weather = pickFromArray(WEATHER_OPTIONS) ?? "맑음";
+  battleState.context.weekday = pickFromArray(WEEKDAY_OPTIONS) ?? "월";
+  battleState.context.salary = pickFromArray(SALARY_OPTIONS) ?? "D-5";
+  updateBattleHeader();
+}
+
+function getContextTags(context) {
+  const tags = [];
+  if (context.weather) tags.push(`날씨_${context.weather}`);
+  if (context.weekday) tags.push(`요일_${context.weekday}`);
+  if (context.salary) tags.push(`월급_${context.salary}`);
+  return tags;
+}
+
+function scoreSentence(sentence, activeContextTags) {
+  if (!sentence) return 0;
+
+  // v0.5: 기본 점수는 문장 자체의 위력(base_power)을 사용
+  const baseScore =
+    typeof sentence.base_power === "number" ? sentence.base_power : 1;
+
+  // 컨텍스트 태그 매칭 개수에 따라 보너스 (매칭 1개당 +2점)
+  const matches =
+    sentence.tags && Array.isArray(sentence.tags)
+      ? sentence.tags.filter((tag) => activeContextTags.includes(tag)).length
+      : 0;
+
+  const tagMatchBonus = matches * 2;
+  const toneBonus = 0; // v0에서는 사용하지 않음
+
+  return baseScore + tagMatchBonus + toneBonus;
+}
+
+function scoreTurn(claim, reason, style, activeContextTags) {
+  const claimScore = scoreSentence(claim, activeContextTags);
+  const reasonScore = scoreSentence(reason, activeContextTags);
+  const styleScore = scoreSentence(style, activeContextTags);
+
+  return {
+    claimScore,
+    reasonScore,
+    styleScore,
+    total: claimScore + reasonScore + styleScore,
+  };
+}
+
+function calcInfluenceDelta(playerTotal, cpuTotal) {
+  const diff = playerTotal - cpuTotal;
+
+  if (diff >= 3) return +8; // 압승
+  if (diff >= 1) return +4; // 근소 승리
+  if (diff <= -3) return -8; // CPU 압승
+  if (diff <= -1) return -4; // CPU 근소 승리
+  return 0; // 비김
+}
 
 // 파일을 fetch 할 수 없는 환경(file:// 등)에서 사용할 폴백 데이터 (한식/김치찌개 간단 버전)
 const FALLBACK_DATA_KOREAN = {
@@ -144,13 +238,28 @@ const KOREAN_MENU = [
 
 // faction(세부 메뉴)에 따라 문장 풀을 필터링
 function applyFactionFilter() {
-  const { menuCategory, faction, allClaims, allReasons, allStyles } = state;
+  const { menuCategory, faction, allClaims, allReasons, allStyles, isFallbackData } =
+    state;
+
+  // 폴백 데이터일 때는 메뉴별 세부 진영 구분 없이 전체 풀을 사용
+  if (isFallbackData) {
+    state.claims = allClaims.slice();
+    state.reasons = allReasons.slice();
+    state.styles = allStyles.slice();
+    state.optionClaims = [];
+    state.optionReasons = [];
+    state.optionStyles = [];
+    return;
+  }
 
   // faction 이 아직 없으면 전체 사용
   if (!faction) {
     state.claims = allClaims.slice();
     state.reasons = allReasons.slice();
     state.styles = allStyles.slice();
+    state.optionClaims = [];
+    state.optionReasons = [];
+    state.optionStyles = [];
     return;
   }
 
@@ -174,6 +283,107 @@ function applyFactionFilter() {
   state.styles = allStyles.filter(matchesFaction);
 }
 
+// 한 턴에 사용할 3개 옵션 뽑기
+function pickRandomSubset(list, count) {
+  if (!Array.isArray(list) || list.length === 0) return [];
+  const pool = list.slice();
+  const picked = [];
+  const n = Math.min(count, pool.length);
+  for (let i = 0; i < n; i += 1) {
+    const index = Math.floor(Math.random() * pool.length);
+    picked.push(pool.splice(index, 1)[0]);
+  }
+  return picked;
+}
+
+function setupTurnOptions() {
+  state.optionClaims = pickRandomSubset(state.claims, 3);
+  state.optionReasons = pickRandomSubset(state.reasons, 3);
+  state.optionStyles = pickRandomSubset(state.styles, 3);
+}
+
+// 배틀 헤더/로그 UI 갱신
+function updateBattleHeader() {
+  const turnEl = document.getElementById("turn-display");
+  const influenceEl = document.getElementById("influence-display");
+  const contextEl = document.getElementById("context-display");
+
+  if (turnEl) {
+    turnEl.textContent = `Turn ${battleState.turn} / ${battleState.maxTurn}`;
+  }
+  if (influenceEl) {
+    influenceEl.textContent = `우리 ${battleState.playerInfluence} : ${battleState.cpuInfluence} 상대`;
+  }
+  if (contextEl) {
+    const { weather, weekday, salary } = battleState.context;
+    contextEl.textContent = `날씨: ${weather} | 요일: ${weekday} | 월급: ${salary}`;
+  }
+}
+
+function showTurnResult(
+  playerScores,
+  cpuScores,
+  delta,
+  playerSelection,
+  cpuSelection
+) {
+  const scoreSummaryEl = document.getElementById("score-summary");
+  const logEl = document.getElementById("log-messages");
+
+  if (scoreSummaryEl) {
+    const diff = playerScores.total - cpuScores.total;
+    let resultText = "";
+    if (diff > 0) resultText = "플레이어 우세";
+    else if (diff < 0) resultText = "CPU 우세";
+    else resultText = "비김";
+
+    scoreSummaryEl.textContent = `플레이어 ${playerScores.total}점 vs CPU ${cpuScores.total}점 (${resultText})`;
+  }
+
+  if (logEl) {
+    let summary;
+    if (delta > 0) {
+      summary = `우리 진영이 ${Math.abs(
+        delta
+      )}명 설득에 성공했습니다. 세력: 우리 ${battleState.playerInfluence} : ${battleState.cpuInfluence} 상대`;
+    } else if (delta < 0) {
+      summary = `상대 진영이 ${Math.abs(
+        delta
+      )}명 설득에 성공했습니다. 세력: 우리 ${battleState.playerInfluence} : ${battleState.cpuInfluence} 상대`;
+    } else {
+      summary = `이번 턴은 팽팽하게 비겼습니다. 세력: 우리 ${battleState.playerInfluence} : ${battleState.cpuInfluence} 상대`;
+    }
+
+    if (battleState.turn === battleState.maxTurn) {
+      // 마지막 턴 결과
+      const finalText = ` 전투 종료! 최종 세력: 우리 ${battleState.playerInfluence} : ${battleState.cpuInfluence} 상대`;
+      summary += finalText;
+    }
+
+    const formatSentence = (sel) => {
+      if (!sel) return "";
+      const parts = [];
+      if (sel.reason) parts.push(sel.reason.text);
+      if (sel.claim) parts.push(sel.claim.text);
+      if (sel.style) parts.push(`(${sel.style.text})`);
+      return parts.join(" ");
+    };
+
+    const playerSentence = formatSentence(playerSelection);
+    const cpuSentence = formatSentence(cpuSelection);
+
+    const lines = [summary];
+    if (playerSentence) {
+      lines.push(`플레이어: ${playerSentence}`);
+    }
+    if (cpuSentence) {
+      lines.push(`CPU: ${cpuSentence}`);
+    }
+
+    logEl.textContent = lines.join("\n");
+  }
+}
+
 async function loadData() {
   try {
     const filePath = CATEGORY_FILES[DEFAULT_CATEGORY];
@@ -187,12 +397,14 @@ async function loadData() {
     const isFileProtocol = window.location.protocol === "file:";
     if (isFileProtocol) {
       data = FALLBACK_DATA_KOREAN;
+      state.isFallbackData = true;
     } else {
       const res = await fetch(filePath);
       if (!res.ok) {
         throw new Error(`JSON 로드 실패: ${filePath} (${res.status})`);
       }
       data = await res.json();
+      state.isFallbackData = false;
     }
 
     state.menuCategory = data.menu_category ?? DEFAULT_CATEGORY;
@@ -216,6 +428,7 @@ async function loadData() {
     state.allClaims = FALLBACK_DATA_KOREAN.claims;
     state.allReasons = FALLBACK_DATA_KOREAN.reasons;
     state.allStyles = FALLBACK_DATA_KOREAN.styles;
+    state.isFallbackData = true;
 
     applyFactionFilter();
   }
@@ -240,7 +453,9 @@ function updateLabels() {
 }
 
 function updateSentence() {
-  const resultEl = document.getElementById("result-sentence");
+  const resultEl =
+    document.getElementById("combined-sentence") ||
+    document.getElementById("result-sentence");
   const { selectedClaim, selectedReason, selectedStyle } = state;
 
   if (!selectedClaim && !selectedReason && !selectedStyle) {
@@ -286,21 +501,32 @@ function setupButtons() {
     document.getElementById("style-option-2"),
   ];
   const btnReset = document.getElementById("btn-reset");
+  const btnConfirmTurn = document.getElementById("confirm-turn");
+  const btnNextTurn = document.getElementById("next-turn");
 
   function applyTexts() {
-    // 현재는 각 배열에 정확히 3개가 있다는 전제를 사용
+    // 현재 턴에 사용할 옵션 배열이 비어 있으면 새로 뽑기
+    if (
+      state.optionClaims.length === 0 ||
+      state.optionReasons.length === 0 ||
+      state.optionStyles.length === 0
+    ) {
+      setupTurnOptions();
+    }
+
+    // 현재는 각 배열에 최대 3개가 있다는 전제를 사용
     claimButtons.forEach((btn, index) => {
-      const item = state.claims[index];
+      const item = state.optionClaims[index];
       btn.textContent = item ? item.text : "-";
       btn.disabled = !item;
     });
     reasonButtons.forEach((btn, index) => {
-      const item = state.reasons[index];
+      const item = state.optionReasons[index];
       btn.textContent = item ? item.text : "-";
       btn.disabled = true; // Reason은 Claim 선택 후 활성화
     });
     styleButtons.forEach((btn, index) => {
-      const item = state.styles[index];
+      const item = state.optionStyles[index];
       btn.textContent = item ? item.text : "-";
       btn.disabled = true; // Style은 Reason 선택 후 활성화
     });
@@ -364,6 +590,9 @@ function setupButtons() {
     state.selectedClaim = null;
     state.selectedReason = null;
     state.selectedStyle = null;
+    battleState.selected.claim = null;
+    battleState.selected.reason = null;
+    battleState.selected.style = null;
     applyTexts();
     setupMenuOptions();
     setStage("menu");
@@ -417,9 +646,10 @@ function setupButtons() {
 
   claimButtons.forEach((btn, index) => {
     btn.addEventListener("click", () => {
-      const item = state.claims[index];
+      const item = state.optionClaims[index];
       if (!item) return;
       state.selectedClaim = item;
+      battleState.selected.claim = item;
       updateLabels();
       setStage("reason");
     });
@@ -427,9 +657,10 @@ function setupButtons() {
 
   reasonButtons.forEach((btn, index) => {
     btn.addEventListener("click", () => {
-      const item = state.reasons[index];
+      const item = state.optionReasons[index];
       if (!item) return;
       state.selectedReason = item;
+      battleState.selected.reason = item;
       updateLabels();
       setStage("style");
     });
@@ -437,9 +668,10 @@ function setupButtons() {
 
   styleButtons.forEach((btn, index) => {
     btn.addEventListener("click", () => {
-      const item = state.styles[index];
+      const item = state.optionStyles[index];
       if (!item) return;
       state.selectedStyle = item;
+      battleState.selected.style = item;
       updateLabels();
       setStage("done");
     });
@@ -458,10 +690,14 @@ function setupButtons() {
 
       // 선택된 faction 기준으로 문장 풀 필터링 후 Claim 단계로 진입
       applyFactionFilter();
+      setupTurnOptions();
       applyTexts();
       state.selectedClaim = null;
       state.selectedReason = null;
       state.selectedStyle = null;
+      battleState.selected.claim = null;
+      battleState.selected.reason = null;
+      battleState.selected.style = null;
       updateLabels();
       setStage("claim");
     });
@@ -472,12 +708,106 @@ function setupButtons() {
       resetSelection();
     });
   }
+
+  if (btnConfirmTurn) {
+    btnConfirmTurn.addEventListener("click", () => {
+      const { claim, reason, style } = battleState.selected;
+
+      const logEl = document.getElementById("log-messages");
+      if (!claim || !reason || !style) {
+        if (logEl) {
+          logEl.textContent =
+            "Claim, Reason, Style을 모두 선택해야 턴을 확정할 수 있습니다.";
+        }
+        return;
+      }
+
+      const activeContextTags = getContextTags(battleState.context);
+      const playerScores = scoreTurn(claim, reason, style, activeContextTags);
+
+      // v0: CPU는 같은 풀에서 랜덤으로 문장 선택
+      const cpuClaim = pickRandom(state.claims);
+      const cpuReason = pickRandom(state.reasons);
+      const cpuStyle = pickRandom(state.styles);
+      const cpuScores = scoreTurn(
+        cpuClaim,
+        cpuReason,
+        cpuStyle,
+        activeContextTags
+      );
+
+      const delta = calcInfluenceDelta(
+        playerScores.total,
+        cpuScores.total
+      );
+
+      battleState.playerInfluence = Math.min(
+        100,
+        Math.max(0, battleState.playerInfluence + delta)
+      );
+      battleState.cpuInfluence = Math.min(
+        100,
+        Math.max(0, battleState.cpuInfluence - delta)
+      );
+
+      updateBattleHeader();
+      showTurnResult(
+        playerScores,
+        cpuScores,
+        delta,
+        { claim, reason, style },
+        { claim: cpuClaim, reason: cpuReason, style: cpuStyle }
+      );
+
+      // 이번 턴은 끝, 다음 턴 버튼만 활성화 (단 마지막 턴이면 비활성)
+      if (btnConfirmTurn) btnConfirmTurn.disabled = true;
+      if (btnNextTurn) {
+        btnNextTurn.disabled = battleState.turn >= battleState.maxTurn;
+      }
+    });
+  }
+
+  if (btnNextTurn) {
+    btnNextTurn.addEventListener("click", () => {
+      if (battleState.turn >= battleState.maxTurn) {
+        return;
+      }
+
+      battleState.turn += 1;
+      battleState.selected.claim = null;
+      battleState.selected.reason = null;
+      battleState.selected.style = null;
+      state.selectedClaim = null;
+      state.selectedReason = null;
+      state.selectedStyle = null;
+
+      setupTurnOptions();
+      applyTexts();
+      updateLabels();
+      setStage("claim");
+      randomizeContext();
+
+      const scoreSummaryEl = document.getElementById("score-summary");
+      const logEl = document.getElementById("log-messages");
+      if (scoreSummaryEl) {
+        scoreSummaryEl.textContent =
+          "아직 점수가 없습니다. Claim/Reason/Style을 모두 고른 뒤 턴을 확정해보세요.";
+      }
+      if (logEl) {
+        logEl.textContent = `Turn ${battleState.turn} 시작. Claim/Reason/Style을 선택해 주세요.`;
+      }
+
+      if (btnNextTurn) btnNextTurn.disabled = true;
+      if (btnConfirmTurn) btnConfirmTurn.disabled = false;
+    });
+  }
 }
 
 window.addEventListener("DOMContentLoaded", async () => {
   await loadData();
   setupButtons();
   updateLabels();
+  randomizeContext();
 });
 
 
