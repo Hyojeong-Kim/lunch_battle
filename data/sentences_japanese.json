@@ -1,0 +1,83 @@
+{
+  "menu_category": "japanese",
+  "claims": [
+    {
+      "id": "claim_ramen_01",
+      "text": "오늘 점심은 라멘 진영이 국물로 이 사무실을 구원해야 합니다.",
+      "faction": "ramen",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_ramen_02",
+      "text": "지금 이 체력으로는, 국물 들어간 라멘 말고는 버틸 수가 없습니다.",
+      "faction": "ramen",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_ramen_03",
+      "text": "오늘 라멘 안 먹으면, 오후 회의에서 바로 전사자 나옵니다.",
+      "faction": "ramen",
+      "tone": "유머형",
+      "tags": ["요일_금"],
+      "base_power": 2
+    }
+  ],
+  "reasons": [
+    {
+      "id": "reason_ramen_01",
+      "text": "어제 야근으로 간이 다 말라서 지금 국물 보충이 시급하기 때문입니다.",
+      "faction": "ramen",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "reason_ramen_02",
+      "text": "밖에 비까지 오는데, 따뜻한 국물 한 번은 줘야 팀 사기가 돌아오기 때문입니다.",
+      "faction": "ramen",
+      "tone": "논리형",
+      "tags": ["날씨_비"],
+      "base_power": 2
+    },
+    {
+      "id": "reason_ramen_03",
+      "text": "월말 리포트 지옥 들어가기 전에, 지금이라도 라멘으로 정신줄을 붙잡아야 하기 때문입니다.",
+      "faction": "ramen",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    }
+  ],
+  "styles": [
+    {
+      "id": "style_ramen_01",
+      "text": "팀장님 앞 보고서 브리핑하듯, 차분하게 조목조목 설명하는 톤으로.",
+      "faction": "ramen",
+      "tone": "논리형",
+      "tags": ["요일_월"],
+      "base_power": 2
+    },
+    {
+      "id": "style_ramen_02",
+      "text": "사극 전투 장면처럼, 오늘 라멘을 먹지 않으면 모두가 쓰러질 것 같은 절박한 톤으로.",
+      "faction": "ramen",
+      "tone": "감성형",
+      "tags": ["날씨_비"],
+      "base_power": 3
+    },
+    {
+      "id": "style_ramen_03",
+      "text": "회사 단톡방 밈 쓰듯, 반은 진담 반은 농담인 톤으로 툭 던지듯이.",
+      "faction": "ramen",
+      "tone": "유머형",
+      "tags": ["요일_금", "요일_화목"],
+      "base_power": 1
+    }
+  ]
+}
+
+

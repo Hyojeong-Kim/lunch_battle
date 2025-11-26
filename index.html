@@ -11,32 +11,82 @@
       <header class="app__header">
         <h1 class="app__title">Lunch War: 문장 조합 테스트</h1>
         <p class="app__subtitle">
-          Claim / Reason / Style 버튼을 눌러 조합해보세요.
+          Claim → Reason → Style 순서로 선택해 한 문장을 완성해보세요.
         </p>
       </header>
 
       <section class="controls">
-        <div class="controls__row">
-          <button id="btn-claim" class="btn controls__btn">
-            Claim 뽑기
-          </button>
-          <span id="selected-claim" class="controls__label">아직 선택 안 됨</span>
-        </div>
-        <div class="controls__row">
-          <button id="btn-reason" class="btn controls__btn">
-            Reason 뽑기
-          </button>
-          <span id="selected-reason" class="controls__label">아직 선택 안 됨</span>
-        </div>
-        <div class="controls__row">
-          <button id="btn-style" class="btn controls__btn">
-            Style 뽑기
-          </button>
-          <span id="selected-style" class="controls__label">아직 선택 안 됨</span>
+        <div class="controls__row" id="row-menu">
+          <div class="controls__row-header">
+            <span class="controls__row-title">0. 메뉴 선택</span>
+            <span id="selected-menu" class="controls__label">아직 선택 안 됨</span>
+          </div>
+          <div class="controls__choices">
+            <button id="menu-option-0" class="btn controls__btn" type="button">
+              -
+            </button>
+            <button id="menu-option-1" class="btn controls__btn" type="button">
+              -
+            </button>
+          </div>
         </div>
 
-        <button id="btn-random-all" class="btn btn--secondary">
-          전부 랜덤 뽑기
+        <div class="controls__row" id="row-claim">
+          <div class="controls__row-header">
+            <span class="controls__row-title">1. Claim</span>
+            <span id="selected-claim" class="controls__label">아직 선택 안 됨</span>
+          </div>
+          <div class="controls__choices">
+            <button id="claim-option-0" class="btn controls__btn" type="button">
+              -
+            </button>
+            <button id="claim-option-1" class="btn controls__btn" type="button">
+              -
+            </button>
+            <button id="claim-option-2" class="btn controls__btn" type="button">
+              -
+            </button>
+          </div>
+        </div>
+
+        <div class="controls__row" id="row-reason">
+          <div class="controls__row-header">
+            <span class="controls__row-title">2. Reason</span>
+            <span id="selected-reason" class="controls__label">아직 선택 안 됨</span>
+          </div>
+          <div class="controls__choices">
+            <button id="reason-option-0" class="btn controls__btn" type="button">
+              -
+            </button>
+            <button id="reason-option-1" class="btn controls__btn" type="button">
+              -
+            </button>
+            <button id="reason-option-2" class="btn controls__btn" type="button">
+              -
+            </button>
+          </div>
+        </div>
+
+        <div class="controls__row" id="row-style">
+          <div class="controls__row-header">
+            <span class="controls__row-title">3. Style</span>
+            <span id="selected-style" class="controls__label">아직 선택 안 됨</span>
+          </div>
+          <div class="controls__choices">
+            <button id="style-option-0" class="btn controls__btn" type="button">
+              -
+            </button>
+            <button id="style-option-1" class="btn controls__btn" type="button">
+              -
+            </button>
+            <button id="style-option-2" class="btn controls__btn" type="button">
+              -
+            </button>
+          </div>
+        </div>
+
+        <button id="btn-reset" class="btn btn--secondary" type="button">
+          선택 초기화하고 처음부터 다시
         </button>
       </section>
 

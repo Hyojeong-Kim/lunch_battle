@@ -1,0 +1,104 @@
+{
+  "categories": [
+    {
+      "id": "korean",
+      "label": "Korean",
+      "label_ko": "한식",
+      "description": "국·찌개·밥·고기 중심의 든든한 점심 한식 라인업",
+      "factions": [
+        {
+          "id": "kimchi_stew",
+          "name": "Kimchi Stew",
+          "name_ko": "김치찌개",
+          "menu_items": [
+            { "id": "menu_kimchi_stew", "label": "Kimchi Stew", "label_ko": "김치찌개" }
+          ],
+          "is_default": true
+        },
+        {
+          "id": "soybean_paste_stew",
+          "name": "Doenjang Stew",
+          "name_ko": "된장찌개",
+          "menu_items": [
+            { "id": "menu_soybean_paste_stew", "label": "Doenjang Stew", "label_ko": "된장찌개" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "soft_tofu_stew",
+          "name": "Sundubu Stew",
+          "name_ko": "순두부찌개",
+          "menu_items": [
+            { "id": "menu_soft_tofu_stew", "label": "Sundubu Stew", "label_ko": "순두부찌개" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "spicy_pork",
+          "name": "Jeyuk Bokkeum",
+          "name_ko": "제육볶음",
+          "menu_items": [
+            { "id": "menu_spicy_pork", "label": "Jeyuk Bokkeum", "label_ko": "제육볶음" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "bibimbap",
+          "name": "Bibimbap",
+          "name_ko": "비빔밥",
+          "menu_items": [
+            { "id": "menu_bibimbap", "label": "Bibimbap", "label_ko": "비빔밥" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "kimchi_fried_rice",
+          "name": "Kimchi Fried Rice",
+          "name_ko": "김치볶음밥",
+          "menu_items": [
+            { "id": "menu_kimchi_fried_rice", "label": "Kimchi Fried Rice", "label_ko": "김치볶음밥" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "yukgaejang",
+          "name": "Yukgaejang",
+          "name_ko": "육개장",
+          "menu_items": [
+            { "id": "menu_yukgaejang", "label": "Yukgaejang", "label_ko": "육개장" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "gamjatang",
+          "name": "Gamjatang",
+          "name_ko": "감자탕",
+          "menu_items": [
+            { "id": "menu_gamjatang", "label": "Gamjatang", "label_ko": "감자탕" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "samgyeopsal",
+          "name": "Samgyeopsal",
+          "name_ko": "삼겹살",
+          "menu_items": [
+            { "id": "menu_samgyeopsal", "label": "Samgyeopsal", "label_ko": "삼겹살" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "galbijjim",
+          "name": "Galbijjim",
+          "name_ko": "갈비찜",
+          "menu_items": [
+            { "id": "menu_galbijjim", "label": "Galbijjim", "label_ko": "갈비찜" }
+          ],
+          "is_default": false
+        }
+      ]
+    }
+  ]
+}
+
+

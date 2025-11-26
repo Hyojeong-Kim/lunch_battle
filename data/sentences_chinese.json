@@ -1,0 +1,83 @@
+{
+  "menu_category": "chinese",
+  "claims": [
+    {
+      "id": "claim_chinese_01",
+      "text": "오늘 점심은 중국집으로 가서 탄수와 기름을 한 번에 해결하는 게 전략적으로 맞습니다.",
+      "faction": "chinese",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_chinese_02",
+      "text": "짜장 한 그릇 먹고 나면, 최소한 오후 두 시까지는 버틸 수 있습니다.",
+      "faction": "chinese",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_chinese_03",
+      "text": "오늘 탕수육 안 시키면, 이 팀에서 배신자가 나올 수도 있습니다.",
+      "faction": "chinese",
+      "tone": "유머형",
+      "tags": ["요일_금"],
+      "base_power": 2
+    }
+  ],
+  "reasons": [
+    {
+      "id": "reason_chinese_01",
+      "text": "밖에 비가 와서 멀리 나가기 애매하니, 배달·포장에 최적화된 메뉴를 선택하는 것이 합리적이기 때문입니다.",
+      "faction": "chinese",
+      "tone": "논리형",
+      "tags": ["날씨_비"],
+      "base_power": 2
+    },
+    {
+      "id": "reason_chinese_02",
+      "text": "이번 달 지출을 생각하면, 짜장면 세트 정도가 가성비와 만족도 사이의 타협안이기 때문입니다.",
+      "faction": "chinese",
+      "tone": "논리형",
+      "tags": ["월급_D-5", "월급_D+5"],
+      "base_power": 2
+    },
+    {
+      "id": "reason_chinese_03",
+      "text": "팀원들 입맛이 제각각일 때, 짜장·짬뽕·볶음밥으로 모두를 만족시키기 가장 쉬운 선택이기 때문입니다.",
+      "faction": "chinese",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    }
+  ],
+  "styles": [
+    {
+      "id": "style_chinese_01",
+      "text": "프로젝트 킥오프 프레젠테이션처럼, 장점들을 슬라이드 넘기듯 나열하는 톤으로.",
+      "faction": "chinese",
+      "tone": "논리형",
+      "tags": ["요일_월"],
+      "base_power": 2
+    },
+    {
+      "id": "style_chinese_02",
+      "text": "'예전에 우리 다 같이 시켜 먹고 행복해했던 그 날'을 소환하듯, 추억팔이하는 말투로.",
+      "faction": "chinese",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "style_chinese_03",
+      "text": "탕수육 찍먹/부먹 논쟁을 일부러 꺼내서, 분위기를 띄운 다음 슬쩍 메뉴를 밀어 넣는 방식으로.",
+      "faction": "chinese",
+      "tone": "유머형",
+      "tags": ["요일_금", "요일_화목"],
+      "base_power": 1
+    }
+  ]
+}
+
+

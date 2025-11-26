@@ -1,0 +1,674 @@
+{
+  "menu_category": "korean",
+  "claims": [
+    {
+      "id": "claim_korean_common_01",
+      "text": "오늘은 따뜻한 한식으로 속 좀 살리자.",
+      "faction": "korean",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_korean_common_02",
+      "text": "점심 한식이면 오후까지 버틸 힘 생긴다.",
+      "faction": "korean",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_korean_common_03",
+      "text": "지금 우리 팀엔 든든한 밥심이 필요하다.",
+      "faction": "korean",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_korean_common_04",
+      "text": "한식 먹고 리듬 한 번 바로잡자.",
+      "faction": "korean",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_korean_common_05",
+      "text": "애매하면 한식이지. 실패할 확률 0%.",
+      "faction": "korean",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_kimchi_stew_01",
+      "text": "김치찌개 한 그릇이면 스트레스 바로 증발이야.",
+      "faction": "kimchi_stew",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_kimchi_stew_02",
+      "text": "얼큰하게 땀 좀 빼고 오후 회의 준비하자.",
+      "faction": "kimchi_stew",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_soybean_paste_stew_01",
+      "text": "된장찌개로 속 편하게 정리하고 가자.",
+      "faction": "soybean_paste_stew",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_soybean_paste_stew_02",
+      "text": "과하게 먹을 날 아니야. 된장이 정답.",
+      "faction": "soybean_paste_stew",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_soft_tofu_stew_01",
+      "text": "부드럽게 따끈하게, 순두부가 오늘 딱이다.",
+      "faction": "soft_tofu_stew",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_soft_tofu_stew_02",
+      "text": "속 불편하면 순두부가 제일 안전한 선택이지.",
+      "faction": "soft_tofu_stew",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_spicy_pork_01",
+      "text": "힘 빠진 날엔 제육이 바로 기력 회복템이다.",
+      "faction": "spicy_pork",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_spicy_pork_02",
+      "text": "고기 먹고 오후 텐션 올리자.",
+      "faction": "spicy_pork",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_bibimbap_01",
+      "text": "가볍고 든든하게, 비빔밥 한 그릇이면 끝.",
+      "faction": "bibimbap",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_bibimbap_02",
+      "text": "골고루 먹고 싶은 날엔 비빔밥이 베스트.",
+      "faction": "bibimbap",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_kimchi_fried_rice_01",
+      "text": "김치볶음밥은 실패 없는 점심 안정픽이다.",
+      "faction": "kimchi_fried_rice",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_kimchi_fried_rice_02",
+      "text": "빨리 먹고 빨리 움직일 땐 김볶이 최고.",
+      "faction": "kimchi_fried_rice",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_yukgaejang_01",
+      "text": "매콤하게 땡기는 날엔 육개장이 정답.",
+      "faction": "yukgaejang",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_yukgaejang_02",
+      "text": "따끈하게 몸 데우고 힘 좀 내자.",
+      "faction": "yukgaejang",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_gamjatang_01",
+      "text": "오늘은 든든하게 감자탕으로 가자.",
+      "faction": "gamjatang",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_gamjatang_02",
+      "text": "뼈 뜯고 힘 좀 채워야 오후 버틴다.",
+      "faction": "gamjatang",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_samgyeopsal_01",
+      "text": "월급날엔 삼겹이지. 고민 끝.",
+      "faction": "samgyeopsal",
+      "tone": "유머형",
+      "tags": ["월급_월급날"],
+      "base_power": 3
+    },
+    {
+      "id": "claim_samgyeopsal_02",
+      "text": "고기 굽는 소리로 스트레스 정리하자!",
+      "faction": "samgyeopsal",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_galbijjim_01",
+      "text": "오늘만은 제대로 먹자. 갈비찜 가자.",
+      "faction": "galbijjim",
+      "tone": "감성형",
+      "tags": ["월급_D+5"],
+      "base_power": 3
+    },
+    {
+      "id": "claim_galbijjim_02",
+      "text": "보상 필요하다. 갈비찜이 답이다.",
+      "faction": "galbijjim",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    }
+  ],
+  "reasons": [
+    {
+      "id": "reason_korean_common_01",
+      "text": "따뜻한 거 먹어야 오후에 덜 지친다.",
+      "faction": "korean",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_korean_common_02",
+      "text": "속 편한 한식이 오늘 컨디션엔 맞아.",
+      "faction": "korean",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_korean_common_03",
+      "text": "밥·국 조합이 제일 안정적이야.",
+      "faction": "korean",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_korean_common_04",
+      "text": "지금 날씨에 한식이 체감 만족도 제일 높아.",
+      "faction": "korean",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_korean_common_05",
+      "text": "부담 없고 든든해서 업무 리듬 살리기 좋아.",
+      "faction": "korean",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_kimchi_stew_01",
+      "text": "얼큰한 국물이 피곤함 싹 잡아줘.",
+      "faction": "kimchi_stew",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "reason_kimchi_stew_02",
+      "text": "찬바람 불면 김치찌개만 한 게 없어.",
+      "faction": "kimchi_stew",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_soybean_paste_stew_01",
+      "text": "된장은 속 편해서 오후 업무에 부담이 없어.",
+      "faction": "soybean_paste_stew",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_soybean_paste_stew_02",
+      "text": "깔끔하게 한 끼 해결하기엔 된장이 딱이지.",
+      "faction": "soybean_paste_stew",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_soft_tofu_stew_01",
+      "text": "자극 덜한 메뉴 찾을 땐 순두부가 최고야.",
+      "faction": "soft_tofu_stew",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_soft_tofu_stew_02",
+      "text": "부드러워서 스트레스 쌓인 날에 잘 맞아.",
+      "faction": "soft_tofu_stew",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_spicy_pork_01",
+      "text": "단백질 채워야 기력 떨어지는 거 막을 수 있어.",
+      "faction": "spicy_pork",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_spicy_pork_02",
+      "text": "밥이랑 같이 먹으면 포만감 유지 잘 돼.",
+      "faction": "spicy_pork",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_bibimbap_01",
+      "text": "야채·밥·고기가 균형 잡혀서 컨디션 관리 좋아.",
+      "faction": "bibimbap",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_bibimbap_02",
+      "text": "가볍게 먹기 딱 좋은 구조야.",
+      "faction": "bibimbap",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_kimchi_fried_rice_01",
+      "text": "빨리 나오고 빨리 먹을 수 있어.",
+      "faction": "kimchi_fried_rice",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_kimchi_fried_rice_02",
+      "text": "간단하지만 든든해서 점심 효율 좋아.",
+      "faction": "kimchi_fried_rice",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_yukgaejang_01",
+      "text": "따끈한 국물로 몸 좀 풀어줘야 해.",
+      "faction": "yukgaejang",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_yukgaejang_02",
+      "text": "매콤해서 졸음 싹 달아나는 메뉴야.",
+      "faction": "yukgaejang",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_gamjatang_01",
+      "text": "감자탕은 오래 포만감 유지돼서 오후 일정 버티기 좋아.",
+      "faction": "gamjatang",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_gamjatang_02",
+      "text": "칼슘·단백질 챙기기에도 괜찮은 선택이야.",
+      "faction": "gamjatang",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_samgyeopsal_01",
+      "text": "월급날엔 고기 먹고 스트레스 한번은 털어야지.",
+      "faction": "samgyeopsal",
+      "tone": "감성형",
+      "tags": ["월급_월급날"],
+      "base_power": 3
+    },
+    {
+      "id": "reason_samgyeopsal_02",
+      "text": "단백질 충전하면 남은 주도 힘 나.",
+      "faction": "samgyeopsal",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_galbijjim_01",
+      "text": "힘 빠진 날엔 단백질+양념 조합이 제일 효과 좋아.",
+      "faction": "galbijjim",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "reason_galbijjim_02",
+      "text": "갈비찜은 포만감·만족감 둘 다 높아.",
+      "faction": "galbijjim",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    }
+  ],
+  "styles": [
+    {
+      "id": "style_common_01",
+      "text": "차분하게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_02",
+      "text": "또박또박",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_03",
+      "text": "근거있게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_04",
+      "text": "논리적으로",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_05",
+      "text": "침착하게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_06",
+      "text": "정확하게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_07",
+      "text": "명확하게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_08",
+      "text": "신중하게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_09",
+      "text": "조리있게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_10",
+      "text": "균형있게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "style_common_11",
+      "text": "따뜻하게",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_12",
+      "text": "부드럽게",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_13",
+      "text": "편안하게",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_14",
+      "text": "진심으로",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_15",
+      "text": "살짝 감성",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_16",
+      "text": "위로하듯",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_17",
+      "text": "조용하게",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_18",
+      "text": "잔잔하게",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_19",
+      "text": "다정하게",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_20",
+      "text": "은근하게",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "style_common_21",
+      "text": "가볍게",
+      "faction": "neutral",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_22",
+      "text": "웃기게",
+      "faction": "neutral",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_23",
+      "text": "툭 던지듯",
+      "faction": "neutral",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_24",
+      "text": "능청스럽게",
+      "faction": "neutral",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_25",
+      "text": "밈톤으로",
+      "faction": "neutral",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_26",
+      "text": "장난스럽게",
+      "faction": "neutral",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_27",
+      "text": "센스있게",
+      "faction": "neutral",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_28",
+      "text": "귀엽게",
+      "faction": "neutral",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "style_common_29",
+      "text": "단도직입",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_30",
+      "text": "과감하게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 3
+    }
+  ]
+}
+
+

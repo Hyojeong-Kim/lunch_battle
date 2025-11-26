@@ -1,0 +1,83 @@
+{
+  "menu_category": "western",
+  "claims": [
+    {
+      "id": "claim_western_01",
+      "text": "오늘 정도면, 한 번쯤은 파스타나 샐러드로 분위기를 바꿔줄 필요가 있습니다.",
+      "faction": "western",
+      "tone": "논리형",
+      "tags": ["월급_D+5"],
+      "base_power": 2
+    },
+    {
+      "id": "claim_western_02",
+      "text": "계속 무거운 것만 먹다 보면 퍼지니까, 오늘은 가볍게 양식으로 리듬을 한 번 바꾸는 게 좋습니다.",
+      "faction": "western",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_western_03",
+      "text": "오늘 샐러드 먹어두면, 오후 회의 때 '우리 팀 되게 의식 있는 팀'처럼 보일 수도 있습니다.",
+      "faction": "western",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    }
+  ],
+  "reasons": [
+    {
+      "id": "reason_western_01",
+      "text": "이번 주에 이미 두 번이나 국밥 계열을 갔기 때문에, 메뉴 편식을 방지할 필요가 있기 때문입니다.",
+      "faction": "western",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_western_02",
+      "text": "외부 미팅이 있어 깔끔한 소스·냄새가 덜 나는 메뉴를 선택하는 게 예의이기 때문입니다.",
+      "faction": "western",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_western_03",
+      "text": "월급 들어온 지 얼마 안 됐을 때 한 번쯤은, '사치 아닌 사치'를 해줘야 다음 달까지 버틸 힘이 생기기 때문입니다.",
+      "faction": "western",
+      "tone": "감성형",
+      "tags": ["월급_월급날", "월급_D+5"],
+      "base_power": 3
+    }
+  ],
+  "styles": [
+    {
+      "id": "style_western_01",
+      "text": "브랜딩 기획 회의하듯, '우리 팀 이미지'를 슬쩍 강조하는 프레젠테이션 톤으로.",
+      "faction": "western",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_western_02",
+      "text": "인스타 스토리 올릴 것처럼, '여기 가면 사진 건진다'는 식의 말투로 살짝 유혹하듯이.",
+      "faction": "western",
+      "tone": "감성형",
+      "tags": ["요일_금"],
+      "base_power": 3
+    },
+    {
+      "id": "style_western_03",
+      "text": "다이어리에 적어둘 새해 목표를 읊조리듯, '이번 달엔 양식도 한 번쯤'이라고 농담 섞어 말하는 톤으로.",
+      "faction": "western",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 1
+    }
+  ]
+}
+
+
