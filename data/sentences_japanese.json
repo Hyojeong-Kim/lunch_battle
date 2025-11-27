@@ -426,28 +426,247 @@
   ],
   "styles": [
     {
-      "id": "style_ramen_01",
-      "text": "팀장님 앞 보고서 브리핑하듯, 차분하게 조목조목 설명하는 톤으로.",
-      "faction": "japanese",
+      "id": "style_common_01",
+      "text": "차분하게",
+      "faction": "neutral",
       "tone": "논리형",
-      "tags": ["요일_월"],
+      "tags": [],
       "base_power": 2
     },
     {
-      "id": "style_ramen_02",
-      "text": "사극 전투 장면처럼, 오늘 라멘을 먹지 않으면 모두가 쓰러질 것 같은 절박한 톤으로.",
-      "faction": "japanese",
-      "tone": "감성형",
-      "tags": ["날씨_비"],
-      "base_power": 3
+      "id": "style_common_02",
+      "text": "또박또박",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
     },
     {
-      "id": "style_ramen_03",
-      "text": "회사 단톡방 밈 쓰듯, 반은 진담 반은 농담인 톤으로 툭 던지듯이.",
-      "faction": "japanese",
+      "id": "style_common_03",
+      "text": "근거있게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_04",
+      "text": "논리적으로",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_05",
+      "text": "침착하게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_06",
+      "text": "정확하게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_07",
+      "text": "명확하게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_08",
+      "text": "신중하게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_09",
+      "text": "조리있게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_10",
+      "text": "균형있게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "style_common_11",
+      "text": "따뜻하게",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_12",
+      "text": "부드럽게",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_13",
+      "text": "편안하게",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_14",
+      "text": "진심으로",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_15",
+      "text": "살짝 감성",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_16",
+      "text": "위로하듯",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_17",
+      "text": "조용하게",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_18",
+      "text": "잔잔하게",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_19",
+      "text": "다정하게",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_20",
+      "text": "은근하게",
+      "faction": "neutral",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "style_common_21",
+      "text": "가볍게",
+      "faction": "neutral",
       "tone": "유머형",
-      "tags": ["요일_금", "요일_화목"],
-      "base_power": 1
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_22",
+      "text": "웃기게",
+      "faction": "neutral",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_23",
+      "text": "툭 던지듯",
+      "faction": "neutral",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_24",
+      "text": "능청스럽게",
+      "faction": "neutral",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_25",
+      "text": "밈톤으로",
+      "faction": "neutral",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_26",
+      "text": "장난스럽게",
+      "faction": "neutral",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_27",
+      "text": "센스있게",
+      "faction": "neutral",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_28",
+      "text": "귀엽게",
+      "faction": "neutral",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "style_common_29",
+      "text": "단도직입",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "style_common_30",
+      "text": "과감하게",
+      "faction": "neutral",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 3
     }
   ]
 }
