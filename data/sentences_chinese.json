@@ -2,54 +2,426 @@
   "menu_category": "chinese",
   "claims": [
     {
-      "id": "claim_chinese_01",
-      "text": "오늘 점심은 중국집으로 가서 탄수와 기름을 한 번에 해결하는 게 전략적으로 맞습니다.",
+      "id": "claim_chinese_common_01",
+      "text": "배부르고 저렴한 최고의 선택.",
       "faction": "chinese",
       "tone": "논리형",
       "tags": [],
       "base_power": 2
     },
     {
-      "id": "claim_chinese_02",
-      "text": "짜장 한 그릇 먹고 나면, 최소한 오후 두 시까지는 버틸 수 있습니다.",
+      "id": "claim_chinese_common_02",
+      "text": "빨리 먹고 바로 일하려면 중식이 정답.",
+      "faction": "chinese",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_chinese_common_03",
+      "text": "진한 불맛으로 텐션 좀 올리자.",
       "faction": "chinese",
       "tone": "감성형",
       "tags": [],
       "base_power": 3
     },
     {
-      "id": "claim_chinese_03",
-      "text": "오늘 탕수육 안 시키면, 이 팀에서 배신자가 나올 수도 있습니다.",
+      "id": "claim_chinese_common_04",
+      "text": "점심 고민엔 당연히 중국집이지.",
       "faction": "chinese",
       "tone": "유머형",
-      "tags": ["요일_금"],
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_chinese_common_05",
+      "text": "든든하게 먹고 오후 피로 막자.",
+      "faction": "chinese",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_jjajang_01",
+      "text": "달달·고소 조합은 짜장이 국룰.",
+      "faction": "jjajang",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_jjajang_02",
+      "text": "가볍게 먹기엔 짜장이 딱이야.",
+      "faction": "jjajang",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_jjambbong_01",
+      "text": "얼큰하게 깔아줘야 오후 버틴다.",
+      "faction": "jjambbong",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_jjambbong_02",
+      "text": "비 오는 날엔 짬뽕이 정답.",
+      "faction": "jjambbong",
+      "tone": "감성형",
+      "tags": ["날씨_비"],
+      "base_power": 3
+    },
+
+    {
+      "id": "claim_fried_rice_01",
+      "text": "볶음밥은 실패 없는 안정픽.",
+      "faction": "fried_rice",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_fried_rice_02",
+      "text": "빨리 먹어야 할 땐 볶음밥이지.",
+      "faction": "fried_rice",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_tangsuyuk_01",
+      "text": "오늘은 바삭한 한입이 필요해.",
+      "faction": "tangsuyuk",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_tangsuyuk_02",
+      "text": "탕수육은 기분전환용 메뉴야.",
+      "faction": "tangsuyuk",
+      "tone": "유머형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_mapo_tofu_01",
+      "text": "부드럽고 매콤한 마파가 집중력 올려.",
+      "faction": "mapo_tofu",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_mapo_tofu_02",
+      "text": "밥 비벼먹기까지 완벽한 조합.",
+      "faction": "mapo_tofu",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_kanpung_gi_01",
+      "text": "매콤달콤 조합은 깐풍기가 최고.",
+      "faction": "kanpung_gi",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_kanpung_gi_02",
+      "text": "텐션 올릴 메뉴면 깐풍기다.",
+      "faction": "kanpung_gi",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_pepper_veggie_pork_rice_01",
+      "text": "간·밥 조합은 잡채밥이 찰떡.",
+      "faction": "pepper_veggie_pork_rice",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_pepper_veggie_pork_rice_02",
+      "text": "담백하게 먹기엔 잡채밥이 정답.",
+      "faction": "pepper_veggie_pork_rice",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_shrimp_fried_rice_01",
+      "text": "가볍고 고소하게는 새우볶밥.",
+      "faction": "shrimp_fried_rice",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_shrimp_fried_rice_02",
+      "text": "새우는 언제나 안정권 메뉴야.",
+      "faction": "shrimp_fried_rice",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_seafood_jjambbong_01",
+      "text": "해물 당기는 날엔 삼선이 정답.",
+      "faction": "seafood_jjambbong",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_seafood_jjambbong_02",
+      "text": "깊은 맛 원하면 삼선으로 가자.",
+      "faction": "seafood_jjambbong",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_yusanseul_01",
+      "text": "부드럽고 고급스러운 맛은 유산슬.",
+      "faction": "yusanseul",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_yusanseul_02",
+      "text": "오늘은 좀 챙겨먹고 싶다—유산슬.",
+      "faction": "yusanseul",
+      "tone": "논리형",
+      "tags": [],
       "base_power": 2
     }
   ],
   "reasons": [
     {
-      "id": "reason_chinese_01",
-      "text": "밖에 비가 와서 멀리 나가기 애매하니, 배달·포장에 최적화된 메뉴를 선택하는 것이 합리적이기 때문입니다.",
+      "id": "reason_chinese_common_01",
+      "text": "중식은 포만감 유지가 좋아.",
       "faction": "chinese",
       "tone": "논리형",
-      "tags": ["날씨_비"],
+      "tags": [],
       "base_power": 2
     },
     {
-      "id": "reason_chinese_02",
-      "text": "이번 달 지출을 생각하면, 짜장면 세트 정도가 가성비와 만족도 사이의 타협안이기 때문입니다.",
+      "id": "reason_chinese_common_02",
+      "text": "바쁠 땐 빨리 나오는 게 필요해.",
       "faction": "chinese",
       "tone": "논리형",
-      "tags": ["월급_D-5", "월급_D+5"],
+      "tags": [],
       "base_power": 2
     },
     {
-      "id": "reason_chinese_03",
-      "text": "팀원들 입맛이 제각각일 때, 짜장·짬뽕·볶음밥으로 모두를 만족시키기 가장 쉬운 선택이기 때문입니다.",
+      "id": "reason_chinese_common_03",
+      "text": "강한 맛이 피로를 바로 잡아줘.",
       "faction": "chinese",
       "tone": "감성형",
       "tags": [],
       "base_power": 3
+    },
+    {
+      "id": "reason_chinese_common_04",
+      "text": "만족도 올리기엔 중식이 안정적.",
+      "faction": "chinese",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_chinese_common_05",
+      "text": "가성비 생각하면 중식이 최고.",
+      "faction": "chinese",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_jjajang_01",
+      "text": "달고 고소해서 부담 없이 먹기 좋아.",
+      "faction": "jjajang",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_jjajang_02",
+      "text": "양도 적당해서 오후에 안 무거워.",
+      "faction": "jjajang",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_jjambbong_01",
+      "text": "얼큰한 국물이 피로회복에 좋아.",
+      "faction": "jjambbong",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_jjambbong_02",
+      "text": "따뜻해서 비·추운 날 시너지 최강.",
+      "faction": "jjambbong",
+      "tone": "논리형",
+      "tags": ["날씨_비"],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_fried_rice_01",
+      "text": "속 편하고 포만감도 오래가.",
+      "faction": "fried_rice",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_fried_rice_02",
+      "text": "빨리 먹고 자리 복귀하기 좋아.",
+      "faction": "fried_rice",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_tangsuyuk_01",
+      "text": "기분전환이 확 되는 맛이야.",
+      "faction": "tangsuyuk",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "reason_tangsuyuk_02",
+      "text": "바삭함이 스트레스 확 줄여줘.",
+      "faction": "tangsuyuk",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_mapo_tofu_01",
+      "text": "부드러워서 위 부담 적어.",
+      "faction": "mapo_tofu",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_mapo_tofu_02",
+      "text": "느끼함 없이 매콤하게 넘어가.",
+      "faction": "mapo_tofu",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_kanpung_gi_01",
+      "text": "양념이 강해서 텐션 확 올라가.",
+      "faction": "kanpung_gi",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_kanpung_gi_02",
+      "text": "바삭함으로 오후 힘 살리기 좋아.",
+      "faction": "kanpung_gi",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_pepper_veggie_pork_rice_01",
+      "text": "간·재료 균형 좋아서 가볍게 먹기 딱.",
+      "faction": "pepper_veggie_pork_rice",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_pepper_veggie_pork_rice_02",
+      "text": "기름기 적어서 오후 피로 덜해.",
+      "faction": "pepper_veggie_pork_rice",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_shrimp_fried_rice_01",
+      "text": "고소하고 담백해서 부담 없어.",
+      "faction": "shrimp_fried_rice",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_shrimp_fried_rice_02",
+      "text": "새우 있어서 맛 퀄 안정적.",
+      "faction": "shrimp_fried_rice",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_seafood_jjambbong_01",
+      "text": "해물 풍미가 기력 회복에 좋아.",
+      "faction": "seafood_jjambbong",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "reason_seafood_jjambbong_02",
+      "text": "국물 깊어서 만족감 높아.",
+      "faction": "seafood_jjambbong",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_yusanseul_01",
+      "text": "고급스럽고 부드러워 컨디션 좋음.",
+      "faction": "yusanseul",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "reason_yusanseul_02",
+      "text": "기름지지 않아 깔끔하게 먹기 좋아.",
+      "faction": "yusanseul",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
     }
   ],
   "styles": [

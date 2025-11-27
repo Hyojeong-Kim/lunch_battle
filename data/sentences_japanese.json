@@ -2,34 +2,261 @@
   "menu_category": "japanese",
   "claims": [
     {
-      "id": "claim_ramen_01",
-      "text": "오늘 점심은 라멘 진영이 국물로 이 사무실을 구원해야 합니다.",
-      "faction": "ramen",
+      "id": "claim_japanese_common_01",
+      "text": "오늘은 가볍고 깔끔하게 일식 가자.",
+      "faction": "japanese",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_japanese_common_02",
+      "text": "점심 부담 적게 먹으려면 일식이지.",
+      "faction": "japanese",
       "tone": "논리형",
       "tags": [],
       "base_power": 2
     },
     {
-      "id": "claim_ramen_02",
-      "text": "지금 이 체력으로는, 국물 들어간 라멘 말고는 버틸 수가 없습니다.",
+      "id": "claim_japanese_common_03",
+      "text": "깔끔한 맛으로 리듬 한번 잡자.",
+      "faction": "japanese",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_japanese_common_04",
+      "text": "빨리 먹고 일하려면 일식이 정답.",
+      "faction": "japanese",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_japanese_common_05",
+      "text": "든든하지만 무겁지 않은 게 좋아.",
+      "faction": "japanese",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_ramen_01",
+      "text": "라멘은 오늘 같은 날 에너지 급충전.",
       "faction": "ramen",
       "tone": "감성형",
       "tags": [],
       "base_power": 3
     },
     {
-      "id": "claim_ramen_03",
-      "text": "오늘 라멘 안 먹으면, 오후 회의에서 바로 전사자 나옵니다.",
+      "id": "claim_ramen_02",
+      "text": "따끈하게 속 채우려면 라멘이 최고.",
       "faction": "ramen",
-      "tone": "유머형",
-      "tags": ["요일_금"],
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_tonkatsu_01",
+      "text": "바삭한 한입이 오늘 텐션 살린다.",
+      "faction": "tonkatsu",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_tonkatsu_02",
+      "text": "돈카츠는 오후 파워 올리는 메뉴야.",
+      "faction": "tonkatsu",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_gyudon_01",
+      "text": "부드럽고 단짠 조합은 규동이 국룰.",
+      "faction": "gyudon",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_gyudon_02",
+      "text": "빨리 먹기엔 규동만 한 게 없어.",
+      "faction": "gyudon",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_udon_01",
+      "text": "속 편하게 가려면 우동이 정답.",
+      "faction": "udon",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_udon_02",
+      "text": "따끈담백하게 먹기 좋은 우동.",
+      "faction": "udon",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_soba_01",
+      "text": "가볍고 산뜻하게는 소바가 최고.",
+      "faction": "soba",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_soba_02",
+      "text": "깔끔한 맛 찾으면 소바지.",
+      "faction": "soba",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_salmon_don_01",
+      "text": "담백하고 고소한 연어가 딱이야.",
+      "faction": "salmon_don",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_salmon_don_02",
+      "text": "가볍지만 퀄 좋은 점심 찾으면 이거.",
+      "faction": "salmon_don",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_oyakodon_01",
+      "text": "부드럽고 포근한 맛은 오야코동.",
+      "faction": "oyakodon",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_oyakodon_02",
+      "text": "부담 없이 든든하게 먹기 좋아.",
+      "faction": "oyakodon",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_katsudon_01",
+      "text": "든든하게 먹고 싶으면 가츠동이지.",
+      "faction": "katsudon",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_katsudon_02",
+      "text": "달달짭짤 조합은 가츠동이 정답.",
+      "faction": "katsudon",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+
+    {
+      "id": "claim_sushi_01",
+      "text": "깔끔하게 먹고 싶으면 스시가 최고.",
+      "faction": "sushi",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_sushi_02",
+      "text": "가볍지만 퀄리티 높은 점심이면 스시.",
+      "faction": "sushi",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+
+    {
+      "id": "claim_sashimi_01",
+      "text": "산뜻하게 컨디션 챙기려면 사시미지.",
+      "faction": "sashimi",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_sashimi_02",
+      "text": "부담 없이 단백질 먹기 좋다.",
+      "faction": "sashimi",
+      "tone": "논리형",
+      "tags": [],
       "base_power": 2
     }
   ],
   "reasons": [
     {
+      "id": "reason_japanese_common_01",
+      "text": "일식은 속 부담이 적어.",
+      "faction": "japanese",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_japanese_common_02",
+      "text": "빨리 나와서 바쁠 때 좋아.",
+      "faction": "japanese",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_japanese_common_03",
+      "text": "깔끔해서 오후 피로 덜해.",
+      "faction": "japanese",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "reason_japanese_common_04",
+      "text": "조미가 약해 부담 없이 먹기 좋아.",
+      "faction": "japanese",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_japanese_common_05",
+      "text": "가성비 좋은 메뉴도 많아.",
+      "faction": "japanese",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
       "id": "reason_ramen_01",
-      "text": "어제 야근으로 간이 다 말라서 지금 국물 보충이 시급하기 때문입니다.",
+      "text": "따뜻한 국물은 피로 풀기에 좋아.",
       "faction": "ramen",
       "tone": "감성형",
       "tags": [],
@@ -37,19 +264,164 @@
     },
     {
       "id": "reason_ramen_02",
-      "text": "밖에 비까지 오는데, 따뜻한 국물 한 번은 줘야 팀 사기가 돌아오기 때문입니다.",
-      "faction": "ramen",
-      "tone": "논리형",
-      "tags": ["날씨_비"],
-      "base_power": 2
-    },
-    {
-      "id": "reason_ramen_03",
-      "text": "월말 리포트 지옥 들어가기 전에, 지금이라도 라멘으로 정신줄을 붙잡아야 하기 때문입니다.",
+      "text": "면+국물 조합이 포만감 잘 유지돼.",
       "faction": "ramen",
       "tone": "논리형",
       "tags": [],
       "base_power": 2
+    },
+
+    {
+      "id": "reason_tonkatsu_01",
+      "text": "단백질 채우기 좋아서 오후 버티기 좋아.",
+      "faction": "tonkatsu",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_tonkatsu_02",
+      "text": "바삭함 덕분에 만족감 높아.",
+      "faction": "tonkatsu",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+
+    {
+      "id": "reason_gyudon_01",
+      "text": "가볍지만 든든해서 속 편해.",
+      "faction": "gyudon",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_gyudon_02",
+      "text": "금방 나와서 시간 아끼기 좋지.",
+      "faction": "gyudon",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_karaage_01",
+      "text": "양념 과하지 않아 부담 없지.",
+      "faction": "karaage",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_karaage_02",
+      "text": "단백질·포만감 밸런스 좋아.",
+      "faction": "karaage",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_udon_01",
+      "text": "자극적이지 않아 속이 편안해.",
+      "faction": "udon",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_udon_02",
+      "text": "따뜻해서 추운 날 특히 좋아.",
+      "faction": "udon",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+
+    {
+      "id": "reason_soba_01",
+      "text": "가벼운 편이라 컨디션 관리 좋아.",
+      "faction": "soba",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_soba_02",
+      "text": "깔끔해서 오후 업무 전 무리 없어.",
+      "faction": "soba",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_salmon_don_01",
+      "text": "기름기 적어서 먹고 나면 가볍지.",
+      "faction": "salmon_don",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_salmon_don_02",
+      "text": "단백질·영양 균형이 좋아.",
+      "faction": "salmon_don",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+
+    {
+      "id": "reason_oyakodon_01",
+      "text": "부드러워서 소화 잘 돼.",
+      "faction": "oyakodon",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_oyakodon_02",
+      "text": "든든하면서도 자극이 적어.",
+      "faction": "oyakodon",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+
+    {
+      "id": "reason_curry_udon_01",
+      "text": "진한 국물은 피로 회복에 도움 돼.",
+      "faction": "curry_udon",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "reason_curry_udon_02",
+      "text": "우동이라 속도 편안함.",
+      "faction": "curry_udon",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_katsudon_01",
+      "text": "푸짐해서 포만감 오래가.",
+      "faction": "katsudon",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_katsudon_02",
+      "text": "안정적인 단짠 조합이라 만족감 높아.",
+      "faction": "katsudon",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
     }
   ],
   "styles": [

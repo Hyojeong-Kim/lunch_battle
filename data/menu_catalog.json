@@ -97,6 +97,320 @@
           "is_default": false
         }
       ]
+    },
+    {
+      "id": "chinese",
+      "label": "Chinese",
+      "label_ko": "중식",
+      "description": "짜장·짬뽕·볶음밥·탕수육 등 중국집 메뉴 라인업",
+      "factions": [
+        {
+          "id": "jjajang",
+          "name": "Jjajangmyeon",
+          "name_ko": "짜장면",
+          "menu_items": [
+            { "id": "menu_jjajang", "label": "Jjajangmyeon", "label_ko": "짜장면" }
+          ],
+          "is_default": true
+        },
+        {
+          "id": "jjambbong",
+          "name": "Jjambbong",
+          "name_ko": "짬뽕",
+          "menu_items": [
+            { "id": "menu_jjambbong", "label": "Jjambbong", "label_ko": "짬뽕" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "fried_rice",
+          "name": "Fried Rice",
+          "name_ko": "볶음밥",
+          "menu_items": [
+            { "id": "menu_fried_rice", "label": "Fried Rice", "label_ko": "볶음밥" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "tangsuyuk",
+          "name": "Tangsuyuk",
+          "name_ko": "탕수육",
+          "menu_items": [
+            { "id": "menu_tangsuyuk", "label": "Tangsuyuk", "label_ko": "탕수육" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "mapo_tofu",
+          "name": "Mapo Tofu",
+          "name_ko": "마파두부",
+          "menu_items": [
+            { "id": "menu_mapo_tofu", "label": "Mapo Tofu", "label_ko": "마파두부" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "kanpung_gi",
+          "name": "Kanpung Gi",
+          "name_ko": "깐풍기",
+          "menu_items": [
+            { "id": "menu_kanpung_gi", "label": "Kanpung Gi", "label_ko": "깐풍기" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "pepper_veggie_pork_rice",
+          "name": "Pepper Veggie Pork Rice",
+          "name_ko": "고추잡채밥",
+          "menu_items": [
+            {
+              "id": "menu_pepper_veggie_pork_rice",
+              "label": "Pepper Veggie Pork Rice",
+              "label_ko": "고추잡채밥"
+            }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "shrimp_fried_rice",
+          "name": "Shrimp Fried Rice",
+          "name_ko": "새우볶음밥",
+          "menu_items": [
+            {
+              "id": "menu_shrimp_fried_rice",
+              "label": "Shrimp Fried Rice",
+              "label_ko": "새우볶음밥"
+            }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "seafood_jjambbong",
+          "name": "Seafood Jjambbong",
+          "name_ko": "삼선짬뽕",
+          "menu_items": [
+            {
+              "id": "menu_seafood_jjambbong",
+              "label": "Seafood Jjambbong",
+              "label_ko": "삼선짬뽕"
+            }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "yusanseul",
+          "name": "Yusanseul",
+          "name_ko": "유산슬",
+          "menu_items": [
+            { "id": "menu_yusanseul", "label": "Yusanseul", "label_ko": "유산슬" }
+          ],
+          "is_default": false
+        }
+      ]
+    },
+    {
+      "id": "japanese",
+      "label": "Japanese",
+      "label_ko": "일식",
+      "description": "라멘·돈카츠·덮밥·스시 등 일식 라인업",
+      "factions": [
+        {
+          "id": "ramen",
+          "name": "Ramen",
+          "name_ko": "라멘",
+          "menu_items": [
+            { "id": "menu_ramen", "label": "Ramen", "label_ko": "라멘" }
+          ],
+          "is_default": true
+        },
+        {
+          "id": "tonkatsu",
+          "name": "Tonkatsu",
+          "name_ko": "돈카츠",
+          "menu_items": [
+            { "id": "menu_tonkatsu", "label": "Tonkatsu", "label_ko": "돈카츠" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "gyudon",
+          "name": "Gyudon",
+          "name_ko": "규동",
+          "menu_items": [
+            { "id": "menu_gyudon", "label": "Gyudon", "label_ko": "규동" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "udon",
+          "name": "Udon",
+          "name_ko": "우동",
+          "menu_items": [
+            { "id": "menu_udon", "label": "Udon", "label_ko": "우동" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "soba",
+          "name": "Soba",
+          "name_ko": "소바",
+          "menu_items": [
+            { "id": "menu_soba", "label": "Soba", "label_ko": "소바" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "salmon_don",
+          "name": "Salmon Don",
+          "name_ko": "연어덮밥",
+          "menu_items": [
+            { "id": "menu_salmon_don", "label": "Salmon Don", "label_ko": "연어덮밥" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "oyakodon",
+          "name": "Oyakodon",
+          "name_ko": "오야코동",
+          "menu_items": [
+            { "id": "menu_oyakodon", "label": "Oyakodon", "label_ko": "오야코동" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "katsudon",
+          "name": "Katsudon",
+          "name_ko": "가츠동",
+          "menu_items": [
+            { "id": "menu_katsudon", "label": "Katsudon", "label_ko": "가츠동" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "sushi",
+          "name": "Sushi",
+          "name_ko": "스시",
+          "menu_items": [
+            { "id": "menu_sushi", "label": "Sushi", "label_ko": "스시" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "sashimi",
+          "name": "Sashimi",
+          "name_ko": "사시미",
+          "menu_items": [
+            { "id": "menu_sashimi", "label": "Sashimi", "label_ko": "사시미" }
+          ],
+          "is_default": false
+        }
+      ]
+    },
+    {
+      "id": "western",
+      "label": "Western",
+      "label_ko": "양식",
+      "description": "파스타·스테이크·피자 등 양식 라인업",
+      "factions": [
+        {
+          "id": "pasta",
+          "name": "Pasta",
+          "name_ko": "파스타",
+          "menu_items": [
+            { "id": "menu_pasta", "label": "Pasta", "label_ko": "파스타" }
+          ],
+          "is_default": true
+        },
+        {
+          "id": "steak",
+          "name": "Steak",
+          "name_ko": "스테이크",
+          "menu_items": [
+            { "id": "menu_steak", "label": "Steak", "label_ko": "스테이크" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "poke",
+          "name": "Poke",
+          "name_ko": "포케",
+          "menu_items": [
+            { "id": "menu_poke", "label": "Poke", "label_ko": "포케" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "omurice",
+          "name": "Omurice",
+          "name_ko": "오므라이스",
+          "menu_items": [
+            { "id": "menu_omurice", "label": "Omurice", "label_ko": "오므라이스" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "risotto",
+          "name": "Risotto",
+          "name_ko": "리조또",
+          "menu_items": [
+            { "id": "menu_risotto", "label": "Risotto", "label_ko": "리조또" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "pizza",
+          "name": "Pizza",
+          "name_ko": "피자",
+          "menu_items": [
+            { "id": "menu_pizza", "label": "Pizza", "label_ko": "피자" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "grilled_chicken",
+          "name": "Grilled Chicken",
+          "name_ko": "그릴드 치킨",
+          "menu_items": [
+            {
+              "id": "menu_grilled_chicken",
+              "label": "Grilled Chicken",
+              "label_ko": "그릴드 치킨"
+            }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "panini",
+          "name": "Panini",
+          "name_ko": "파니니",
+          "menu_items": [
+            { "id": "menu_panini", "label": "Panini", "label_ko": "파니니" }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "hamburg_steak",
+          "name": "Hamburg Steak",
+          "name_ko": "햄버그 스테이크",
+          "menu_items": [
+            {
+              "id": "menu_hamburg_steak",
+              "label": "Hamburg Steak",
+              "label_ko": "햄버그 스테이크"
+            }
+          ],
+          "is_default": false
+        },
+        {
+          "id": "taco",
+          "name": "Taco",
+          "name_ko": "타코",
+          "menu_items": [
+            { "id": "menu_taco", "label": "Taco", "label_ko": "타코" }
+          ],
+          "is_default": false
+        }
+      ]
     }
   ]
 }

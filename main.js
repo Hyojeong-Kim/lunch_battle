@@ -62,9 +62,17 @@ const DEFAULT_CATEGORY = "korean";
 const DEFAULT_FACTION_BY_CATEGORY = {
   japanese: "ramen",
   korean: "kimchi_stew",
-  chinese: "chinese",
-  western: "western",
+  chinese: "jjajang",
+  western: "pasta",
 };
+
+const MENU_CATALOG_PATH = "./data/menu_catalog.json";
+
+// 카테고리별 전체 문장 데이터 (HTTP 환경에서 모두 프리로드)
+const CATEGORY_DATA = {};
+// menu_catalog 에서 뽑은 전체 메뉴 리스트 (카테고리 상관없이)
+// 예: { id: "kimchi_stew", label: "Kimchi Stew", labelKo: "김치찌개", category: "korean" }
+let ALL_MENUS = [];
 
 // --- 컨텍스트 → 태그 변환 & 점수 계산 유틸 ---
 
@@ -218,7 +226,7 @@ const FALLBACK_DATA_KOREAN = {
   ],
 };
 
-// 한식 메뉴 (KOREAN_MENU) - 메뉴 2개를 랜덤으로 뽑기 위한 소스
+// 한식 메뉴 (KOREAN_MENU) - file:// 폴백 또는 menu_catalog 로드 실패 시 사용
 const KOREAN_MENU = [
   { id: "kimchi_stew", label: "Kimchi Stew", labelKo: "김치찌개" },
   { id: "soybean_paste_stew", label: "Doenjang Stew", labelKo: "된장찌개" },
@@ -320,6 +328,35 @@ function updateBattleHeader() {
   }
 }
 
+// 점수 차이에 따른 CPU 리액션 텍스트
+function getCpuReaction(delta) {
+  // delta: 이번 턴으로 "우리 진영" 세력치가 얼마나 변했는지 (플레이어 기준)
+  if (delta > 0) {
+    // 플레이어가 이긴 턴
+    if (delta >= 8) {
+      return "상대 진영이 크게 흔들린다. 상대 진영의 대장이 식은땀을 흘리는 듯하다.";
+    }
+    if (delta >= 6) {
+      return "상대 팀 고양이들이 슬슬 이쪽 논리에 끌려오는 기색이다.";
+    }
+    return "상대 진영 대장의 잠깐 말문이 막힌 듯 조용해진다.";
+  }
+
+  if (delta < 0) {
+    // CPU가 이긴 턴
+    if (delta <= -8) {
+      return "상대가 결정타를 날렸다. 우리 진영 분위기가 크게 다운된다.";
+    }
+    if (delta <= -6) {
+      return "상대 진영 논리가 꽤 먹혔다. 우리 쪽 고양이들이 슬슬 흔들린다.";
+    }
+    return "상대가 능청스럽게 받아치며 분위기를 다시 가져간다.";
+  }
+
+  // 비김
+  return "서로 한 발도 물러서지 않는다. 회의실 공기만 더 묵직해진다.";
+}
+
 function showTurnResult(
   playerScores,
   cpuScores,
@@ -380,33 +417,116 @@ function showTurnResult(
       lines.push(`CPU: ${cpuSentence}`);
     }
 
+    const reaction = getCpuReaction(delta);
+    if (reaction) {
+      lines.push(`상대 리액션: ${reaction}`);
+    }
+
     logEl.textContent = lines.join("\n");
   }
 }
 
 async function loadData() {
   try {
-    const filePath = CATEGORY_FILES[DEFAULT_CATEGORY];
-    if (!filePath) {
-      throw new Error(`지원하지 않는 카테고리입니다: ${DEFAULT_CATEGORY}`);
-    }
-
-    let data;
-
-    // file:// 로 열었을 가능성이 높으면 바로 폴백 사용
     const isFileProtocol = window.location.protocol === "file:";
+
     if (isFileProtocol) {
-      data = FALLBACK_DATA_KOREAN;
+      // file:// 환경: 한식 폴백 데이터 + 한식 메뉴만 사용
+      CATEGORY_DATA.korean = FALLBACK_DATA_KOREAN;
       state.isFallbackData = true;
-    } else {
-      const res = await fetch(filePath);
-      if (!res.ok) {
-        throw new Error(`JSON 로드 실패: ${filePath} (${res.status})`);
-      }
-      data = await res.json();
-      state.isFallbackData = false;
+
+      // 폴백용 전체 메뉴 (한식만)
+      ALL_MENUS = KOREAN_MENU.map((m) => ({
+        ...m,
+        category: "korean",
+      }));
+
+      const data = CATEGORY_DATA.korean;
+      state.menuCategory = data.menu_category ?? DEFAULT_CATEGORY;
+      state.faction =
+        DEFAULT_FACTION_BY_CATEGORY[state.menuCategory] ??
+        DEFAULT_FACTION_BY_CATEGORY[DEFAULT_CATEGORY];
+
+      state.allClaims = Array.isArray(data.claims) ? data.claims : [];
+      state.allReasons = Array.isArray(data.reasons) ? data.reasons : [];
+      state.allStyles = Array.isArray(data.styles) ? data.styles : [];
+
+      applyFactionFilter();
+      return;
     }
 
+    // HTTP/HTTPS 환경: 모든 카테고리 JSON 프리로드
+    state.isFallbackData = false;
+
+    const categoryEntries = Object.entries(CATEGORY_FILES);
+    const categoryPromises = categoryEntries.map(async ([category, path]) => {
+      const res = await fetch(path);
+      if (!res.ok) {
+        throw new Error(`JSON 로드 실패: ${path} (${res.status})`);
+      }
+      const json = await res.json();
+      CATEGORY_DATA[category] = json;
+    });
+
+    // 메뉴 카탈로그 로드
+    const catalogPromise = (async () => {
+      try {
+        const res = await fetch(MENU_CATALOG_PATH);
+        if (!res.ok) {
+          throw new Error(
+            `메뉴 카탈로그 로드 실패: ${MENU_CATALOG_PATH} (${res.status})`
+          );
+        }
+        const catalog = await res.json();
+        if (catalog && Array.isArray(catalog.categories)) {
+          ALL_MENUS = catalog.categories.flatMap((cat) => {
+            if (!Array.isArray(cat.factions)) return [];
+            return cat.factions.map((faction) => ({
+              id: faction.id,
+              label: faction.name || faction.id,
+              labelKo: faction.name_ko || faction.name || faction.id,
+              category: cat.id,
+            }));
+          });
+        }
+      } catch (e) {
+        console.error("메뉴 카탈로그 로드 중 오류, 한식 메뉴로 폴백:", e);
+        ALL_MENUS = KOREAN_MENU.map((m) => ({
+          ...m,
+          category: "korean",
+        }));
+      }
+    })();
+
+    await Promise.all([...categoryPromises, catalogPromise]);
+
+    const initialCategory = DEFAULT_CATEGORY;
+    const data =
+      CATEGORY_DATA[initialCategory] ??
+      CATEGORY_DATA.korean ??
+      FALLBACK_DATA_KOREAN;
+
+    state.menuCategory = data.menu_category ?? initialCategory;
+    state.faction =
+      DEFAULT_FACTION_BY_CATEGORY[state.menuCategory] ??
+      DEFAULT_FACTION_BY_CATEGORY[initialCategory];
+
+    state.allClaims = Array.isArray(data.claims) ? data.claims : [];
+    state.allReasons = Array.isArray(data.reasons) ? data.reasons : [];
+    state.allStyles = Array.isArray(data.styles) ? data.styles : [];
+
+    applyFactionFilter();
+  } catch (error) {
+    console.error("데이터 로드 실패, 폴백 데이터 사용:", error);
+
+    // 완전 실패 시에도 최소한 한식 폴백으로 동작
+    CATEGORY_DATA.korean = FALLBACK_DATA_KOREAN;
+    ALL_MENUS = KOREAN_MENU.map((m) => ({
+      ...m,
+      category: "korean",
+    }));
+
+    const data = CATEGORY_DATA.korean;
     state.menuCategory = data.menu_category ?? DEFAULT_CATEGORY;
     state.faction =
       DEFAULT_FACTION_BY_CATEGORY[state.menuCategory] ??
@@ -416,20 +536,7 @@ async function loadData() {
     state.allReasons = Array.isArray(data.reasons) ? data.reasons : [];
     state.allStyles = Array.isArray(data.styles) ? data.styles : [];
 
-    applyFactionFilter();
-  } catch (error) {
-    console.error("데이터 로드 실패, 폴백 데이터 사용:", error);
-    // fetch 에 실패한 경우에도 폴백 데이터로 최소한 동작하도록 처리
-    state.menuCategory = FALLBACK_DATA_KOREAN.menu_category;
-    state.faction =
-      DEFAULT_FACTION_BY_CATEGORY[state.menuCategory] ??
-      DEFAULT_FACTION_BY_CATEGORY[DEFAULT_CATEGORY];
-
-    state.allClaims = FALLBACK_DATA_KOREAN.claims;
-    state.allReasons = FALLBACK_DATA_KOREAN.reasons;
-    state.allStyles = FALLBACK_DATA_KOREAN.styles;
     state.isFallbackData = true;
-
     applyFactionFilter();
   }
 }
@@ -600,8 +707,12 @@ function setupButtons() {
   }
 
   function setupMenuOptions() {
-    // v1: 한식만 사용, 메뉴 2개 랜덤 선택
-    const pool = KOREAN_MENU.slice();
+    // v2: menu_catalog 기반 전체 메뉴(카테고리 무관)에서 2개 랜덤 선택
+    const source =
+      Array.isArray(ALL_MENUS) && ALL_MENUS.length > 0
+        ? ALL_MENUS
+        : KOREAN_MENU;
+    const pool = source.slice();
     if (pool.length === 0) {
       state.menuOptions = [];
       menuButtons.forEach((btn) => {
@@ -683,7 +794,28 @@ function setupButtons() {
       const option = state.menuOptions[index];
       if (!option) return;
 
+      // 메뉴(faction) 및 카테고리 설정
       state.faction = option.id;
+      state.menuCategory = option.category || state.menuCategory || DEFAULT_CATEGORY;
+
+      // 선택된 카테고리에 맞게 전체 풀 교체
+      if (!state.isFallbackData) {
+        const dataForCategory =
+          CATEGORY_DATA[state.menuCategory] ??
+          CATEGORY_DATA[DEFAULT_CATEGORY] ??
+          FALLBACK_DATA_KOREAN;
+
+        state.allClaims = Array.isArray(dataForCategory.claims)
+          ? dataForCategory.claims
+          : [];
+        state.allReasons = Array.isArray(dataForCategory.reasons)
+          ? dataForCategory.reasons
+          : [];
+        state.allStyles = Array.isArray(dataForCategory.styles)
+          ? dataForCategory.styles
+          : [];
+      }
+
       if (selectedMenuEl) {
         selectedMenuEl.textContent = option.labelKo ?? option.label ?? option.id;
       }

@@ -2,26 +2,212 @@
   "menu_category": "western",
   "claims": [
     {
-      "id": "claim_western_01",
-      "text": "오늘 정도면, 한 번쯤은 파스타나 샐러드로 분위기를 바꿔줄 필요가 있습니다.",
+      "id": "claim_western_common_01",
+      "text": "오늘은 가볍게 양식으로 가자.",
       "faction": "western",
-      "tone": "논리형",
-      "tags": ["월급_D+5"],
+      "tone": "감성형",
+      "tags": [],
       "base_power": 2
     },
     {
-      "id": "claim_western_02",
-      "text": "계속 무거운 것만 먹다 보면 퍼지니까, 오늘은 가볍게 양식으로 리듬을 한 번 바꾸는 게 좋습니다.",
+      "id": "claim_western_common_02",
+      "text": "깔끔하고 산뜻하게 먹기 좋다.",
+      "faction": "western",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_western_common_03",
+      "text": "든든하지만 무겁지 않은 점심.",
       "faction": "western",
       "tone": "감성형",
       "tags": [],
       "base_power": 3
     },
     {
-      "id": "claim_western_03",
-      "text": "오늘 샐러드 먹어두면, 오후 회의 때 '우리 팀 되게 의식 있는 팀'처럼 보일 수도 있습니다.",
+      "id": "claim_western_common_04",
+      "text": "기분전환엔 양식이 딱이야.",
       "faction": "western",
-      "tone": "유머형",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_western_common_05",
+      "text": "점심 퀄리티 올리기 좋은 선택.",
+      "faction": "western",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_pasta_01",
+      "text": "산뜻하게 먹기엔 파스타가 딱이지.",
+      "faction": "pasta",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_pasta_02",
+      "text": "가볍지만 든든한 파스타로 가자.",
+      "faction": "pasta",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_steak_01",
+      "text": "오늘은 좀 제대로 먹자—스테이크.",
+      "faction": "steak",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_steak_02",
+      "text": "힘내려면 고기 한 점은 필요해.",
+      "faction": "steak",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_poke_01",
+      "text": "가볍게 먹고 싶으면 포케가 정답.",
+      "faction": "poke",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_poke_02",
+      "text": "신선하게 영양 챙기려면 포케.",
+      "faction": "poke",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_omurice_01",
+      "text": "부드럽고 든든한 오므라이스.",
+      "faction": "omurice",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_omurice_02",
+      "text": "달달·고소 조합은 오므라이스.",
+      "faction": "omurice",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_risotto_01",
+      "text": "크리미하게 가려면 리조또가 최고.",
+      "faction": "risotto",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_risotto_02",
+      "text": "속 편안하게 먹기 좋은 메뉴야.",
+      "faction": "risotto",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_pizza_01",
+      "text": "피자 한 조각으로 텐션 올리자.",
+      "faction": "pizza",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_pizza_02",
+      "text": "가볍게 먹기에도 나쁘지 않아.",
+      "faction": "pizza",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_grilled_chicken_01",
+      "text": "담백하게 단백질 챙길 수 있어.",
+      "faction": "grilled_chicken",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_grilled_chicken_02",
+      "text": "가볍지만 든든한 메뉴야.",
+      "faction": "grilled_chicken",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_panini_01",
+      "text": "가볍고 담백하게 먹기 좋아.",
+      "faction": "panini",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_panini_02",
+      "text": "빠르게 먹기 편한 메뉴야.",
+      "faction": "panini",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_hamburg_steak_01",
+      "text": "부드러운 고기 찾으면 햄버그지.",
+      "faction": "hamburg_steak",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+    {
+      "id": "claim_hamburg_steak_02",
+      "text": "달달짭짤 조합이 딱 맞아.",
+      "faction": "hamburg_steak",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "claim_taco_01",
+      "text": "가볍지만 풍미 있는 메뉴야.",
+      "faction": "taco",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "claim_taco_02",
+      "text": "한두 개 먹기 딱 좋다.",
+      "faction": "taco",
+      "tone": "논리형",
       "tags": [],
       "base_power": 2
     }
