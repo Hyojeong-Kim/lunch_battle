@@ -428,7 +428,7 @@
     {
       "id": "style_ramen_01",
       "text": "팀장님 앞 보고서 브리핑하듯, 차분하게 조목조목 설명하는 톤으로.",
-      "faction": "ramen",
+      "faction": "japanese",
       "tone": "논리형",
       "tags": ["요일_월"],
       "base_power": 2
@@ -436,7 +436,7 @@
     {
       "id": "style_ramen_02",
       "text": "사극 전투 장면처럼, 오늘 라멘을 먹지 않으면 모두가 쓰러질 것 같은 절박한 톤으로.",
-      "faction": "ramen",
+      "faction": "japanese",
       "tone": "감성형",
       "tags": ["날씨_비"],
       "base_power": 3
@@ -444,7 +444,7 @@
     {
       "id": "style_ramen_03",
       "text": "회사 단톡방 밈 쓰듯, 반은 진담 반은 농담인 톤으로 툭 던지듯이.",
-      "faction": "ramen",
+      "faction": "japanese",
       "tone": "유머형",
       "tags": ["요일_금", "요일_화목"],
       "base_power": 1
