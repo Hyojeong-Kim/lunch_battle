@@ -120,6 +120,28 @@ function scoreSentence(sentence, activeContextTags) {
   return baseScore + tagMatchBonus + toneBonus;
 }
 
+// 디버그용: 한 문장의 점수 계산을 상세히 설명
+function explainSentenceScore(sentence, activeContextTags) {
+  if (!sentence) return null;
+
+  const base =
+    typeof sentence.base_power === "number" ? sentence.base_power : 1;
+  const tags =
+    sentence.tags && Array.isArray(sentence.tags) ? sentence.tags : [];
+  const matchedTags = tags.filter((tag) => activeContextTags.includes(tag));
+  const tagBonus = matchedTags.length * 2;
+  const total = base + tagBonus;
+
+  return {
+    id: sentence.id,
+    text: sentence.text,
+    base,
+    tagBonus,
+    matchedTags,
+    total,
+  };
+}
+
 function scoreTurn(claim, reason, style, activeContextTags) {
   const claimScore = scoreSentence(claim, activeContextTags);
   const reasonScore = scoreSentence(reason, activeContextTags);
@@ -366,6 +388,7 @@ function showTurnResult(
 ) {
   const scoreSummaryEl = document.getElementById("score-summary");
   const logEl = document.getElementById("log-messages");
+   const debugEl = document.getElementById("debug-panel");
 
   if (scoreSummaryEl) {
     const diff = playerScores.total - cpuScores.total;
@@ -423,6 +446,64 @@ function showTurnResult(
     }
 
     logEl.textContent = lines.join("\n");
+  }
+
+  // 개발용 디버그 패널: 점수/태그 상세 표시
+  if (debugEl) {
+    const activeContextTags = getContextTags(battleState.context);
+
+    const pClaim = explainSentenceScore(
+      playerSelection.claim,
+      activeContextTags
+    );
+    const pReason = explainSentenceScore(
+      playerSelection.reason,
+      activeContextTags
+    );
+    const pStyle = explainSentenceScore(
+      playerSelection.style,
+      activeContextTags
+    );
+
+    const cClaim = explainSentenceScore(cpuSelection.claim, activeContextTags);
+    const cReason = explainSentenceScore(
+      cpuSelection.reason,
+      activeContextTags
+    );
+    const cStyle = explainSentenceScore(cpuSelection.style, activeContextTags);
+
+    const explainLine = (label, info) => {
+      if (!info) return `  ${label}: 선택 없음`;
+      const tagsText =
+        info.matchedTags && info.matchedTags.length > 0
+          ? info.matchedTags.join(", ")
+          : "매칭 태그 없음";
+      return `  ${label}: ${info.total}점 (기본 ${info.base}, 태그 보너스 +${
+        info.tagBonus
+      }) | ${tagsText}`;
+    };
+
+    const debugLines = [];
+    debugLines.push("개발용 디버그 — 이번 턴 점수 상세");
+    debugLines.push(
+      `컨텍스트 태그: ${
+        activeContextTags.length > 0
+          ? activeContextTags.join(", ")
+          : "없음 (매칭 없음)"
+      }`
+    );
+    debugLines.push("");
+    debugLines.push(`플레이어 총점: ${playerScores.total}점`);
+    debugLines.push(explainLine("Claim", pClaim));
+    debugLines.push(explainLine("Reason", pReason));
+    debugLines.push(explainLine("Style", pStyle));
+    debugLines.push("");
+    debugLines.push(`CPU 총점: ${cpuScores.total}점`);
+    debugLines.push(explainLine("Claim", cClaim));
+    debugLines.push(explainLine("Reason", cReason));
+    debugLines.push(explainLine("Style", cStyle));
+
+    debugEl.textContent = debugLines.join("\n");
   }
 }
 
@@ -921,12 +1002,16 @@ function setupButtons() {
 
       const scoreSummaryEl = document.getElementById("score-summary");
       const logEl = document.getElementById("log-messages");
+      const debugEl = document.getElementById("debug-panel");
       if (scoreSummaryEl) {
         scoreSummaryEl.textContent =
           "아직 점수가 없습니다. Claim/Reason/Style을 모두 고른 뒤 턴을 확정해보세요.";
       }
       if (logEl) {
         logEl.textContent = `Turn ${battleState.turn} 시작. Claim/Reason/Style을 선택해 주세요.`;
+      }
+      if (debugEl) {
+        debugEl.textContent = "개발용 디버그: 아직 턴 정보 없음.";
       }
 
       if (btnNextTurn) btnNextTurn.disabled = true;

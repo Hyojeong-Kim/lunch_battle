@@ -167,6 +167,19 @@ body {
   white-space: pre-line;
 }
 
+.debug-panel {
+  margin-top: 8px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #f4f2ff;
+  border: 1px dashed #c5c0ff;
+  font-size: 0.8rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  color: #555;
+  white-space: pre-wrap;
+}
+
 .battle-footer {
   margin-top: 20px;
   display: flex;
