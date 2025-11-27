@@ -55,7 +55,7 @@
       "text": "따끈하게 속 채우려면 라멘이 최고.",
       "faction": "ramen",
       "tone": "논리형",
-      "tags": [],
+      "tags": ["날씨_비", "날씨_눈"],
       "base_power": 2
     },
 
@@ -106,7 +106,7 @@
       "text": "따끈담백하게 먹기 좋은 우동.",
       "faction": "udon",
       "tone": "감성형",
-      "tags": [],
+      "tags": ["날씨_비"],
       "base_power": 2
     },
 
@@ -115,7 +115,7 @@
       "text": "가볍고 산뜻하게는 소바가 최고.",
       "faction": "soba",
       "tone": "감성형",
-      "tags": [],
+      "tags": ["날씨_맑음"],
       "base_power": 2
     },
     {
@@ -132,7 +132,7 @@
       "text": "담백하고 고소한 연어가 딱이야.",
       "faction": "salmon_don",
       "tone": "감성형",
-      "tags": [],
+      "tags": ["요일_화목"],
       "base_power": 3
     },
     {
@@ -183,7 +183,7 @@
       "text": "깔끔하게 먹고 싶으면 스시가 최고.",
       "faction": "sushi",
       "tone": "논리형",
-      "tags": [],
+      "tags": ["월급_월급날"],
       "base_power": 2
     },
     {
@@ -200,7 +200,7 @@
       "text": "산뜻하게 컨디션 챙기려면 사시미지.",
       "faction": "sashimi",
       "tone": "감성형",
-      "tags": [],
+      "tags": ["월급_D+5"],
       "base_power": 3
     },
     {
@@ -226,7 +226,7 @@
       "text": "빨리 나와서 바쁠 때 좋아.",
       "faction": "japanese",
       "tone": "논리형",
-      "tags": [],
+      "tags": ["요일_월"],
       "base_power": 2
     },
     {
@@ -259,7 +259,7 @@
       "text": "따뜻한 국물은 피로 풀기에 좋아.",
       "faction": "ramen",
       "tone": "감성형",
-      "tags": [],
+      "tags": ["날씨_비"],
       "base_power": 3
     },
     {
@@ -344,7 +344,7 @@
       "text": "가벼운 편이라 컨디션 관리 좋아.",
       "faction": "soba",
       "tone": "논리형",
-      "tags": [],
+      "tags": ["요일_월"],
       "base_power": 2
     },
     {
@@ -361,7 +361,7 @@
       "text": "기름기 적어서 먹고 나면 가볍지.",
       "faction": "salmon_don",
       "tone": "논리형",
-      "tags": [],
+      "tags": ["요일_화목"],
       "base_power": 2
     },
     {
@@ -420,7 +420,7 @@
       "text": "안정적인 단짠 조합이라 만족감 높아.",
       "faction": "katsudon",
       "tone": "감성형",
-      "tags": [],
+      "tags": ["월급_D+5"],
       "base_power": 3
     }
   ],

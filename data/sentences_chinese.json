@@ -6,7 +6,7 @@
       "text": "배부르고 저렴한 최고의 선택.",
       "faction": "chinese",
       "tone": "논리형",
-      "tags": [],
+      "tags": ["월급_D-5"],
       "base_power": 2
     },
     {
@@ -38,7 +38,7 @@
       "text": "든든하게 먹고 오후 피로 막자.",
       "faction": "chinese",
       "tone": "감성형",
-      "tags": [],
+      "tags": ["요일_수"],
       "base_power": 2
     },
 
@@ -106,7 +106,7 @@
       "text": "탕수육은 기분전환용 메뉴야.",
       "faction": "tangsuyuk",
       "tone": "유머형",
-      "tags": [],
+      "tags": ["요일_금"],
       "base_power": 2
     },
 
@@ -200,7 +200,7 @@
       "text": "부드럽고 고급스러운 맛은 유산슬.",
       "faction": "yusanseul",
       "tone": "감성형",
-      "tags": [],
+      "tags": ["월급_월급날"],
       "base_power": 3
     },
     {
@@ -250,7 +250,7 @@
       "text": "가성비 생각하면 중식이 최고.",
       "faction": "chinese",
       "tone": "논리형",
-      "tags": [],
+      "tags": ["월급_D-5"],
       "base_power": 2
     },
 
@@ -310,7 +310,7 @@
       "text": "기분전환이 확 되는 맛이야.",
       "faction": "tangsuyuk",
       "tone": "감성형",
-      "tags": [],
+      "tags": ["요일_금"],
       "base_power": 3
     },
     {
@@ -369,7 +369,7 @@
       "text": "기름기 적어서 오후 피로 덜해.",
       "faction": "pepper_veggie_pork_rice",
       "tone": "논리형",
-      "tags": [],
+      "tags": ["요일_수"],
       "base_power": 2
     },
 
@@ -395,7 +395,7 @@
       "text": "해물 풍미가 기력 회복에 좋아.",
       "faction": "seafood_jjambbong",
       "tone": "감성형",
-      "tags": [],
+      "tags": ["날씨_비", "날씨_눈"],
       "base_power": 3
     },
     {

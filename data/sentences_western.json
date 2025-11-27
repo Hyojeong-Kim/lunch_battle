@@ -64,7 +64,7 @@
       "text": "오늘은 좀 제대로 먹자—스테이크.",
       "faction": "steak",
       "tone": "감성형",
-      "tags": [],
+      "tags": ["월급_월급날"],
       "base_power": 3
     },
     {
@@ -132,7 +132,7 @@
       "text": "피자 한 조각으로 텐션 올리자.",
       "faction": "pizza",
       "tone": "감성형",
-      "tags": [],
+      "tags": ["요일_금"],
       "base_power": 3
     },
     {
@@ -183,7 +183,7 @@
       "text": "부드러운 고기 찾으면 햄버그지.",
       "faction": "hamburg_steak",
       "tone": "감성형",
-      "tags": [],
+      "tags": ["월급_D+5"],
       "base_power": 3
     },
     {
@@ -200,7 +200,7 @@
       "text": "가볍지만 풍미 있는 메뉴야.",
       "faction": "taco",
       "tone": "감성형",
-      "tags": [],
+      "tags": ["요일_금"],
       "base_power": 2
     },
     {
@@ -214,28 +214,214 @@
   ],
   "reasons": [
     {
-      "id": "reason_western_01",
-      "text": "이번 주에 이미 두 번이나 국밥 계열을 갔기 때문에, 메뉴 편식을 방지할 필요가 있기 때문입니다.",
+      "id": "reason_western_common_01",
+      "text": "양식은 체감 부담이 적어.",
       "faction": "western",
       "tone": "논리형",
       "tags": [],
       "base_power": 2
     },
     {
-      "id": "reason_western_02",
-      "text": "외부 미팅이 있어 깔끔한 소스·냄새가 덜 나는 메뉴를 선택하는 게 예의이기 때문입니다.",
+      "id": "reason_western_common_02",
+      "text": "빠르게 나오고 먹기 편해.",
       "faction": "western",
       "tone": "논리형",
       "tags": [],
       "base_power": 2
     },
     {
-      "id": "reason_western_03",
-      "text": "월급 들어온 지 얼마 안 됐을 때 한 번쯤은, '사치 아닌 사치'를 해줘야 다음 달까지 버틸 힘이 생기기 때문입니다.",
+      "id": "reason_western_common_03",
+      "text": "자극 덜해서 컨디션 유지 좋아.",
+      "faction": "western",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_western_common_04",
+      "text": "깔끔해서 업무 전 먹기 좋다.",
+      "faction": "western",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_western_common_05",
+      "text": "만족도 대비 가성비 괜찮아.",
       "faction": "western",
       "tone": "감성형",
-      "tags": ["월급_월급날", "월급_D+5"],
+      "tags": ["월급_D-5"],
       "base_power": 3
+    },
+
+    {
+      "id": "reason_pasta_01",
+      "text": "기름기 적어 오후에 부담 덜해.",
+      "faction": "pasta",
+      "tone": "논리형",
+      "tags": ["요일_수"],
+      "base_power": 2
+    },
+    {
+      "id": "reason_pasta_02",
+      "text": "양·맛 균형 좋아 무난해.",
+      "faction": "pasta",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_steak_01",
+      "text": "단백질 챙기기 좋은 메뉴야.",
+      "faction": "steak",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_steak_02",
+      "text": "포만감 오래가 업무에 좋아.",
+      "faction": "steak",
+      "tone": "논리형",
+      "tags": ["월급_월급날"],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_poke_01",
+      "text": "신선한 재료라 속 부담 적어.",
+      "faction": "poke",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_poke_02",
+      "text": "가볍지만 영양 밸런스 좋아.",
+      "faction": "poke",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_omurice_01",
+      "text": "부드러워서 소화 잘 돼.",
+      "faction": "omurice",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_omurice_02",
+      "text": "달달 고소해 만족감 높아.",
+      "faction": "omurice",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+
+    {
+      "id": "reason_risotto_01",
+      "text": "크리미하지만 속 편안해.",
+      "faction": "risotto",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_risotto_02",
+      "text": "천천히 먹기 좋아 안정적.",
+      "faction": "risotto",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_pizza_01",
+      "text": "한두 조각이면 충분히 든든해.",
+      "faction": "pizza",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_pizza_02",
+      "text": "빠르게 먹고 자리 복귀 좋다.",
+      "faction": "pizza",
+      "tone": "논리형",
+      "tags": ["요일_금"],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_grilled_chicken_01",
+      "text": "담백한 단백질이라 부담 적어.",
+      "faction": "grilled_chicken",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_grilled_chicken_02",
+      "text": "가볍지만 든든한 구성.",
+      "faction": "grilled_chicken",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_panini_01",
+      "text": "담백하고 먹기 편해.",
+      "faction": "panini",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_panini_02",
+      "text": "빠르게 한 끼 해결에 좋아.",
+      "faction": "panini",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+
+    {
+      "id": "reason_hamburg_steak_01",
+      "text": "부드럽고 담백해 부담 없음.",
+      "faction": "hamburg_steak",
+      "tone": "논리형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_hamburg_steak_02",
+      "text": "단짠 조합이라 만족감 높음.",
+      "faction": "hamburg_steak",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 3
+    },
+
+    {
+      "id": "reason_taco_01",
+      "text": "가볍지만 풍미 좋아.",
+      "faction": "taco",
+      "tone": "감성형",
+      "tags": [],
+      "base_power": 2
+    },
+    {
+      "id": "reason_taco_02",
+      "text": "한두 개로도 충분히 든든해.",
+      "faction": "taco",
+      "tone": "논리형",
+      "tags": ["요일_금"],
+      "base_power": 2
     }
   ],
   "styles": [
