@@ -219,6 +219,47 @@
 
 ---
 
+## 2025-11-28
+
+### 1) 인트로 / Start To Battle 화면 도입
+
+- `index.html`
+  - 기존 배틀 화면을 `battle-screen` 섹션으로 감싸고,
+  - 별도의 인트로 섹션 `start-screen`을 추가:
+    - 타이틀: “Lunch War: Office Faction Battle”
+    - 한 줄 설명: 직장인 고양이 점심 메뉴 전쟁 + Claim/Reason/Style 조합 요약
+    - `START TO BATTLE` 버튼: 실제 배틀 화면으로 진입하는 유일한 진입점.
+- `style.css`
+  - 인트로 카드를 중앙에 배치하는 레이아웃 추가:
+    - 최소 뷰포트 높이, 가운데 정렬, 카드 스타일(라운드+그라데이션+섀도우).
+  - `battle-screen` 기본 `display: none;`, `.is-active` 시에만 표시되도록 클래스 기반 토글 구조 도입.
+
+### 2) 인트로 → 배틀 전환 로직
+
+- `main.js`
+  - `initIntroScreen()` 추가:
+    - `start-battle-btn`, `start-screen`, `battle-screen`을 찾아 이벤트 바인딩.
+    - 초기에는:
+      - `battle-screen`에서 `.is-active` 제거, `aria-hidden="true"` 설정.
+    - Start 버튼 클릭 시:
+      - `start-screen`을 `display: none` 처리.
+      - `battle-screen`에 `.is-active` 추가, `aria-hidden`을 `false`로 변경.
+      - `updateBattleHeader()`와 첫 턴 안내 로그 설정.
+  - `DOMContentLoaded` 핸들러에서:
+    - 기존 `loadData()`, `setupButtons()`, `updateLabels()`, `randomizeContext()` 호출 뒤
+    - `initIntroScreen()`을 호출하여 인트로-배틀 흐름 초기화.
+
+### 3) 현재 상태 메모
+
+- 코어 기능 측면:
+  - Start 화면 → 메뉴 2개 중 1개 선택 → Claim/Reason/Style 순차 선택 → 점수/세력/디버그까지  
+    한 판을 플레이할 수 있는 **텍스트/버튼 기반 MVP 루프** 완성.
+- UI/연출 측면:
+  - 인트로와 배틀 화면이 분리되면서,
+    - 향후 엔딩 화면/리플레이 UX/난이도 선택 등도 같은 구조로 확장할 수 있는 기반 확보.
+
+---
+
 향후에는 이 로그에 날짜를 추가하면서:
 - 카테고리/진영 확장,
 - 세력치/턴 UI 추가,
