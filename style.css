@@ -17,6 +17,57 @@ body {
   padding: 24px 16px 40px;
 }
 
+/* 인트로 / 스타트 화면 */
+.start-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.start-screen__card {
+  width: 100%;
+  max-width: 640px;
+  padding: 32px 20px 28px;
+  border-radius: 18px;
+  background: linear-gradient(145deg, #fdf5ff, #f3f7ff);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.start-screen__title {
+  margin: 0 0 8px;
+  font-size: 1.8rem;
+}
+
+.start-screen__subtitle {
+  margin: 0 0 20px;
+  font-size: 0.98rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.start-screen__btn {
+  padding: 10px 28px;
+  font-size: 1rem;
+  margin-top: 4px;
+}
+
+.start-screen__note {
+  margin: 14px 0 0;
+  font-size: 0.8rem;
+  color: #777;
+}
+
+/* 배틀 화면 */
+.battle-screen {
+  display: none;
+}
+
+.battle-screen.is-active {
+  display: block;
+}
+
 .app__header {
   margin-bottom: 24px;
 }

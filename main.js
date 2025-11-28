@@ -1020,11 +1020,40 @@ function setupButtons() {
   }
 }
 
+// 인트로(Start To Battle) 화면 초기화
+function initIntroScreen() {
+  const startBtn = document.getElementById("start-battle-btn");
+  const startScreen = document.getElementById("start-screen");
+  const battleScreen = document.getElementById("battle-screen");
+
+  if (!startBtn || !startScreen || !battleScreen) return;
+
+  // 초기에는 배틀 화면을 숨긴 상태에서 데이터/버튼만 미리 준비해 둔다.
+  battleScreen.classList.remove("is-active");
+  battleScreen.setAttribute("aria-hidden", "true");
+
+  startBtn.addEventListener("click", () => {
+    // 인트로 숨기고 배틀 화면 진입
+    startScreen.style.display = "none";
+    battleScreen.classList.add("is-active");
+    battleScreen.setAttribute("aria-hidden", "false");
+
+    // 첫 턴 정보 갱신
+    updateBattleHeader();
+    const logEl = document.getElementById("log-messages");
+    if (logEl) {
+      logEl.textContent =
+        "Turn 1 시작. 메뉴를 고르고 Claim/Reason/Style을 선택해 주세요.";
+    }
+  });
+}
+
 window.addEventListener("DOMContentLoaded", async () => {
   await loadData();
   setupButtons();
   updateLabels();
   randomizeContext();
+  initIntroScreen();
 });
 
 
