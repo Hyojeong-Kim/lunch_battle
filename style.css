@@ -22,9 +22,9 @@ body {
   position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-end; /* 카드 위치를 아래쪽으로 내려서 캐릭터 얼굴이 더 보이게 */
   justify-content: center;
-  padding: 16px;
+  padding: 16px 16px 40px;
   /* 프로젝트 루트 기준 키 비주얼 이미지 */
   background-image: url("./Resource/Art/Pre_KV.png");
   background-size: cover;
