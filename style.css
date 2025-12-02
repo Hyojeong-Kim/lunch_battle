@@ -25,7 +25,8 @@ body {
   align-items: center;
   justify-content: center;
   padding: 16px;
-  background-image: url("./assets/start-office-cat-portrait.png");
+  /* 프로젝트 루트 기준 키 비주얼 이미지 */
+  background-image: url("./Resource/Art/Pre_KV.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
