@@ -158,10 +158,13 @@ function scoreTurn(claim, reason, style, activeContextTags) {
 function calcInfluenceDelta(playerTotal, cpuTotal) {
   const diff = playerTotal - cpuTotal;
 
-  if (diff >= 3) return +8; // 압승
-  if (diff >= 1) return +4; // 근소 승리
-  if (diff <= -3) return -8; // CPU 압승
-  if (diff <= -1) return -4; // CPU 근소 승리
+  // 점수 차이에 따라 세력 이동을 더 드라마틱하게 조정
+  if (diff >= 5) return +18; // 압도적 승리
+  if (diff >= 3) return +12; // 확실한 승리
+  if (diff >= 1) return +6; // 근소 승리
+  if (diff <= -5) return -18; // CPU 압도적 승리
+  if (diff <= -3) return -12; // CPU 확실한 승리
+  if (diff <= -1) return -6; // CPU 근소 승리
   return 0; // 비김
 }
 
