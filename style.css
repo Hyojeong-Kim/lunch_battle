@@ -290,6 +290,9 @@ body {
   margin: 0 0 8px;
   font-size: 0.98rem;
   line-height: 1.6;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
 .scene-overlay__line:first-of-type {
@@ -302,6 +305,15 @@ body {
   width: 100%;
   background: #ffb347;
   color: #422100;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.scene-overlay__line.is-shown,
+.scene-overlay__btn.is-shown {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @keyframes sceneFadeIn {

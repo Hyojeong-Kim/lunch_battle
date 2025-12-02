@@ -715,10 +715,40 @@ function showIntroScene() {
   line3El.textContent =
     "이제 당신의 한 마디로, 100명의 점심 세력이 어느 쪽으로 기울지 결정된다.";
 
+   // 이전 연출 상태 초기화
+  [line1El, line2El, line3El, skipBtn].forEach((el) =>
+    el.classList.remove("is-shown")
+  );
+
   overlay.classList.add("is-visible");
   overlay.setAttribute("aria-hidden", "false");
 
+  const timeouts = [];
+
+  // 단계적으로 한 줄씩 등장
+  timeouts.push(
+    setTimeout(() => {
+      line1El.classList.add("is-shown");
+    }, 200)
+  );
+  timeouts.push(
+    setTimeout(() => {
+      line2El.classList.add("is-shown");
+    }, 1200)
+  );
+  timeouts.push(
+    setTimeout(() => {
+      line3El.classList.add("is-shown");
+    }, 2200)
+  );
+  timeouts.push(
+    setTimeout(() => {
+      skipBtn.classList.add("is-shown");
+    }, 3200)
+  );
+
   const hideOverlay = () => {
+    timeouts.forEach((id) => clearTimeout(id));
     overlay.classList.remove("is-visible");
     overlay.setAttribute("aria-hidden", "true");
     overlay.removeEventListener("click", onOverlayClick);
