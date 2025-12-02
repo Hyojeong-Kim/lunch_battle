@@ -78,6 +78,7 @@ body {
 
 /* 배틀 화면 */
 .battle-screen {
+  position: relative;
   display: none;
 }
 
@@ -256,6 +257,61 @@ body {
 
 .battle-footer .btn {
   flex: 1 1 0;
+}
+
+/* 인트로 씬 / 배틀 돌입 오버레이 */
+.scene-overlay {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 20% 0%, rgba(255, 255, 255, 0.9), rgba(20, 12, 40, 0.9));
+  backdrop-filter: blur(6px);
+  z-index: 10;
+}
+
+.scene-overlay.is-visible {
+  display: flex;
+  animation: sceneFadeIn 0.5s ease-out;
+}
+
+.scene-overlay__inner {
+  max-width: 560px;
+  padding: 24px 18px 20px;
+  border-radius: 16px;
+  background: rgba(12, 8, 28, 0.9);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+  color: #f8f2ff;
+}
+
+.scene-overlay__line {
+  margin: 0 0 8px;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+.scene-overlay__line:first-of-type {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.scene-overlay__btn {
+  margin-top: 10px;
+  width: 100%;
+  background: #ffb347;
+  color: #422100;
+}
+
+@keyframes sceneFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 

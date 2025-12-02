@@ -27,6 +27,24 @@
 
       <!-- 실제 배틀 화면 -->
       <section id="battle-screen" class="battle-screen" aria-hidden="true">
+        <!-- 인트로 씬 / 배틀 돌입 연출 오버레이 -->
+        <div id="intro-scene" class="scene-overlay" aria-hidden="true">
+          <div class="scene-overlay__inner">
+            <p id="scene-line-1" class="scene-overlay__line">
+              오늘도 점심 전쟁이 다가온다...
+            </p>
+            <p id="scene-line-2" class="scene-overlay__line"></p>
+            <p id="scene-line-3" class="scene-overlay__line"></p>
+            <button
+              id="scene-skip-btn"
+              class="btn btn--secondary scene-overlay__btn"
+              type="button"
+            >
+              전장으로 진입하기
+            </button>
+          </div>
+        </div>
+
         <header class="app__header">
           <h1 class="app__title">Lunch War: 문장 조합 테스트</h1>
           <p class="app__subtitle">

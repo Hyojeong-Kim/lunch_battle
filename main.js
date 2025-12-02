@@ -661,6 +661,83 @@ function updateSentence() {
   resultEl.textContent = parts.join(" ");
 }
 
+// 컨텍스트를 한글 내레이션용으로 설명하는 헬퍼
+function describeContextLine(context) {
+  if (!context) return "";
+  const { weather, weekday, salary_timing } = context;
+
+  const weatherText =
+    weather === "비"
+      ? "창밖에는 비가 내리고,"
+      : weather === "눈"
+      ? "창밖에는 눈이 소복히 쌓이고,"
+      : weather === "맑음"
+      ? "창밖에는 해가 쨍쨍하게 떠 있고,"
+      : weather === "흐림"
+      ? "창밖에는 잔잔한 구름이 깔려 있고,"
+      : "창밖 풍경은 평범하지만,";
+
+  const weekdayText =
+    weekday === "월"
+      ? "월요일 팀 전체가 아직 워밍업도 안 된 상태다."
+      : weekday === "수"
+      ? "수요일, 주중 피로가 슬슬 쌓여가는 한가운데다."
+      : weekday === "금"
+      ? "불금, 모두의 시선은 이미 오후 야근이 아니라 저녁과 주말에 가 있다."
+      : "조용한 평일, 회의와 업무 사이에 조용히 점심 시간이 스며든다.";
+
+  const salaryText =
+    salary_timing === "D-5"
+      ? "지갑은 가볍고, 모두가 은근히 가성비를 계산하고 있다."
+      : salary_timing === "월급날"
+      ? "오늘은 월급날, 누군가는 이미 마음속으로 플렉스를 외치고 있다."
+      : salary_timing === "D+5"
+      ? "월급을 한 번 쓴 뒤의 D+5, 아직은 여유가 있지만 눈치도 조금씩 보이기 시작한다."
+      : "";
+
+  return `${weatherText} ${weekdayText} ${salaryText}`.trim();
+}
+
+// 인트로 씬(배틀 돌입 내레이션) 표시
+function showIntroScene() {
+  const overlay = document.getElementById("intro-scene");
+  const line1El = document.getElementById("scene-line-1");
+  const line2El = document.getElementById("scene-line-2");
+  const line3El = document.getElementById("scene-line-3");
+  const skipBtn = document.getElementById("scene-skip-btn");
+
+  if (!overlay || !line1El || !line2El || !line3El || !skipBtn) return;
+
+  // 컨텍스트 기반으로 한 줄 씩 연출 텍스트 구성
+  const ctx = battleState.context;
+  line1El.textContent = "점심 직전, 오늘도 사무실에는 조용한 전쟁 준비가 시작된다.";
+  line2El.textContent = describeContextLine(ctx);
+  line3El.textContent =
+    "이제 당신의 한 마디로, 100명의 점심 세력이 어느 쪽으로 기울지 결정된다.";
+
+  overlay.classList.add("is-visible");
+  overlay.setAttribute("aria-hidden", "false");
+
+  const hideOverlay = () => {
+    overlay.classList.remove("is-visible");
+    overlay.setAttribute("aria-hidden", "true");
+    overlay.removeEventListener("click", onOverlayClick);
+    skipBtn.removeEventListener("click", onSkipClick);
+  };
+
+  const onSkipClick = (event) => {
+    event.stopPropagation();
+    hideOverlay();
+  };
+
+  const onOverlayClick = () => {
+    hideOverlay();
+  };
+
+  skipBtn.addEventListener("click", onSkipClick);
+  overlay.addEventListener("click", onOverlayClick);
+}
+
 function setupButtons() {
   const rowMenu = document.getElementById("row-menu");
   const rowClaim = document.getElementById("row-claim");
@@ -1045,6 +1122,9 @@ function initIntroScreen() {
       logEl.textContent =
         "Turn 1 시작. 메뉴를 고르고 Claim/Reason/Style을 선택해 주세요.";
     }
+
+    // 컨텍스트 기반 인트로 씬 연출 표시
+    showIntroScene();
   });
 }
 
