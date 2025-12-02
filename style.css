@@ -286,6 +286,10 @@ body {
   color: #f8f2ff;
 }
 
+.scene-overlay__title {
+  font-size: 1.1rem;
+}
+
 .scene-overlay__line {
   margin: 0 0 8px;
   font-size: 0.98rem;

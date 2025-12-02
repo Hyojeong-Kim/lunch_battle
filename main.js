@@ -505,6 +505,11 @@ function showTurnResult(
 
     debugEl.textContent = debugLines.join("\n");
   }
+
+  // 마지막 턴이라면 엔딩 씬 연출 호출
+  if (battleState.turn === battleState.maxTurn) {
+    showEndingScene();
+  }
 }
 
 async function loadData() {
@@ -765,6 +770,113 @@ function showIntroScene() {
   };
 
   skipBtn.addEventListener("click", onSkipClick);
+  overlay.addEventListener("click", onOverlayClick);
+}
+
+// 전투 종료 연출(엔딩 씬) 표시
+function showEndingScene() {
+  const overlay = document.getElementById("ending-scene");
+  const titleEl = document.getElementById("ending-title");
+  const line1El = document.getElementById("ending-line-1");
+  const line2El = document.getElementById("ending-line-2");
+  const closeBtn = document.getElementById("ending-close-btn");
+
+  if (!overlay || !titleEl || !line1El || !line2El || !closeBtn) return;
+
+  const diff = battleState.playerInfluence - battleState.cpuInfluence;
+  const our = battleState.playerInfluence;
+  const enemy = battleState.cpuInfluence;
+
+  let title;
+  let line1;
+  let line2;
+
+  if (diff > 0) {
+    if (diff >= 20) {
+      title = "압도적 승리";
+      line1 = `전장이 조용해지자, 사무실의 시선 대부분이 이미 당신 쪽으로 기울어 있었다.`;
+      line2 = `최종 세력: 우리 ${our} : ${enemy} 상대 — 오늘 점심 전쟁의 승자는 명백하다.`;
+    } else if (diff >= 10) {
+      title = "확실한 승리";
+      line1 = `여러 번의 논리 전투 끝에, 동료들의 마음은 확실히 이쪽으로 넘어왔다.`;
+      line2 = `최종 세력: 우리 ${our} : ${enemy} 상대 — 오늘 점심 메뉴는 사실상 결정되었다.`;
+    } else {
+      title = "근소한 승리";
+      line1 = `마지막 한 마디까지 팽팽했지만, 아주 조금 더 설득력 있었던 쪽은 당신이었다.`;
+      line2 = `최종 세력: 우리 ${our} : ${enemy} 상대 — 힘겹게 따낸 오늘의 점심이다.`;
+    }
+  } else if (diff < 0) {
+    if (diff <= -20) {
+      title = "참담한 패배";
+      line1 = `논리는 있었지만, 오늘 전장은 끝까지 당신을 돕지 않았다.`;
+      line2 = `최종 세력: 우리 ${our} : ${enemy} 상대 — 다음 점심 전쟁을 기약하자.`;
+    } else if (diff <= -10) {
+      title = "아쉬운 패배";
+      line1 = `몇 턴만 더 있었다면, 판세가 뒤집혔을지도 모른다는 생각이 스친다.`;
+      line2 = `최종 세력: 우리 ${our} : ${enemy} 상대 — 이번엔 상대에게 한 끼를 양보했다.`;
+    } else {
+      title = "근소한 패배";
+      line1 = `마지막까지 잘 싸웠지만, 동료들의 마음이 아주 살짝 더 상대 쪽으로 기울었다.`;
+      line2 = `최종 세력: 우리 ${our} : ${enemy} 상대 — 다음 전투에서 다시 노려 보자.`;
+    }
+  } else {
+    title = "팽팽한 무승부";
+    line1 = `끝까지도 우열을 가리지 못한 점심 전쟁. 동료들은 여전히 메뉴를 두고 고민 중이다.`;
+    line2 = `최종 세력: 우리 ${our} : ${enemy} 상대 — 이 싸움의 진짜 승자는 아마 배달앱일지도 모른다.`;
+  }
+
+  titleEl.textContent = title;
+  line1El.textContent = line1;
+  line2El.textContent = line2;
+
+  [titleEl, line1El, line2El, closeBtn].forEach((el) =>
+    el.classList.remove("is-shown")
+  );
+
+  overlay.classList.add("is-visible");
+  overlay.setAttribute("aria-hidden", "false");
+
+  const timeouts = [];
+
+  timeouts.push(
+    setTimeout(() => {
+      titleEl.classList.add("is-shown");
+    }, 150)
+  );
+  timeouts.push(
+    setTimeout(() => {
+      line1El.classList.add("is-shown");
+    }, 850)
+  );
+  timeouts.push(
+    setTimeout(() => {
+      line2El.classList.add("is-shown");
+    }, 1650)
+  );
+  timeouts.push(
+    setTimeout(() => {
+      closeBtn.classList.add("is-shown");
+    }, 2450)
+  );
+
+  const hideOverlay = () => {
+    timeouts.forEach((id) => clearTimeout(id));
+    overlay.classList.remove("is-visible");
+    overlay.setAttribute("aria-hidden", "true");
+    overlay.removeEventListener("click", onOverlayClick);
+    closeBtn.removeEventListener("click", onCloseClick);
+  };
+
+  const onCloseClick = (event) => {
+    event.stopPropagation();
+    hideOverlay();
+  };
+
+  const onOverlayClick = () => {
+    hideOverlay();
+  };
+
+  closeBtn.addEventListener("click", onCloseClick);
   overlay.addEventListener("click", onOverlayClick);
 }
 
